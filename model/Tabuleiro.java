@@ -22,7 +22,7 @@ public class Tabuleiro extends Navios{
         }
     }
 
-    public void defender(Tabuleiro x){ //falta implementar cada tipo de navio no tabuleiro
+    public void defender(Tabuleiro x) throws CoordenadaNavioException{ //falta implementar cada tipo de navio no tabuleiro e a exception
 
         Scanner scanner = new Scanner(System.in);
         for(int i = 0; i < getQuant1Cano();i++){

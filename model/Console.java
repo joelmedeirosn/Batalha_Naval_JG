@@ -1,7 +1,7 @@
 package model;
 
 public class Console {
-    public static void main(String[] args){
+    public static void main(String[] args) throws CoordenadaNavioException {
         Player player1 = new Player();
         Player player2 = new Player();
         //player1.setPlayerName();

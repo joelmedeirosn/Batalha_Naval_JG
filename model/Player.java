@@ -12,12 +12,12 @@ public class Player {
     public Player(){
     }
 
-    public void setPlayerName(){
+    public void setPlayerName() throws NomeInvalidoException{
         Scanner input = new Scanner(System.in);
         System.out.println("Digite seu nome, jogador:");
         playerName = input.nextLine();
 
-        while (playerName.length()<=2 || playerName.length()>=16){
+        while (playerName.length()<=2 || playerName.length()>=16){ //NomeInvalidoException
             System.out.println("Digite um nome entre 3 e 15 caracteres.");
             playerName = input.nextLine();
         }
