@@ -5,17 +5,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import model.*;
-
 public class Menu extends JFrame implements ActionListener {
-    Color fundo = new Color(253,184,39);
-    JPanel menu = new JPanel();
-    JButton jb = new JButton("JOGAR");
-    JButton jb2 = new JButton("RANKING");
-    JButton jb3 = new JButton("SAIR");
+    //Color fundo = new Color(253,184,39);
+   //JPanel menu = new JPanel();
+    JButton bJogar = new JButton("JOGAR");
+    JButton bRanking = new JButton("RANKING");
+    JButton bSair = new JButton("SAIR");
     Font fonteBotao = new Font("Courier New",Font.ITALIC | Font.BOLD,15);
     Font fonteLabel = new Font("Serif", Font.BOLD,50);
-    //ImageIcon imagem = new ImageIcon(getClass().getResource("fundo.jpeg"));
+   // ImageIcon imagem = new ImageIcon(getClass().getResource("fundo.jpeg"));
    // JLabel fundo = new JLabel(imagem);
 
     JLabel titulo = new JLabel();
@@ -25,47 +23,59 @@ public class Menu extends JFrame implements ActionListener {
         // add(BorderLayout.NORTH,jb); adiciona um botao em uma das margens da janela
         //add(fundo);
         //menu.setBackground(fundo);
-
         titulo.setFont(fonteLabel);
         titulo.setText("Batalha Naval");
         titulo.setBounds(250,100,800,70);
         add(titulo);//titulo batalha naval
 
-        jb.setFont(fonteBotao);//fonte da letra do botao
-        jb2.setFont(fonteBotao);
-        jb3.setFont(fonteBotao);
+        this.botoes();
+        this.configurarGuia();
+    }
 
-        jb.setForeground(Color.white);
-        jb.setBackground(Color.black);//cor do botao
-
-        jb.addActionListener(this);
-        jb2.addActionListener(this);
-        jb3.addActionListener(this);//botao ser tratado nessa mesma classe
-        setLayout(null);
-        jb.setBounds(300,240,200,70);//coordenadas do botao
-        jb2.setBounds(300,368,200,70);
-        jb3.setBounds(300,496,200,70);
-
-        add(jb);
-        add(jb2);
-        add(jb3);
-
+    public void configurarGuia(){
         setTitle("Batalha Naval");
         setSize(800,800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
+
     }
 
-    public void painelMenu(){}
+    public void botoes(){
+        bJogar.setFont(fonteBotao);//fonte da letra do botao
+        bRanking.setFont(fonteBotao);
+        bSair.setFont(fonteBotao);
+
+        bJogar.setForeground(Color.cyan);
+        bJogar.setBackground(Color.darkGray);
+        bRanking.setForeground(Color.cyan);
+        bRanking.setBackground(Color.darkGray);
+        bSair.setForeground(Color.cyan);
+        bSair.setBackground(Color.darkGray);
+
+        bJogar.addActionListener(this);
+        bRanking.addActionListener(this);
+        bSair.addActionListener(this);//botao ser tratado nessa mesma classe
+
+        bJogar.setBounds(300,240,200,70);//coordenadas do botao
+        bRanking.setBounds(300,368,200,70);
+        bSair.setBounds(300,496,200,70);
+
+        add(bJogar);
+        add(bRanking);
+        add(bSair);
+        setLayout(null);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) { //metodo do action listener que da a função dos botões
-        if(e.getSource()==jb){
-            JOptionPane.showMessageDialog(null, "jogo");
+        if(e.getSource()== bJogar){
+            NomeJogadores nomeJogadores = new NomeJogadores();
+            this.dispose();
+            nomeJogadores.setVisible(true);
         }
-        if(e.getSource()==jb3){
+        if(e.getSource()== bSair){
             System.exit(0);
         }
 
