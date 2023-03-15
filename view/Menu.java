@@ -8,18 +8,23 @@ import java.awt.event.ActionListener;
 import model.*;
 
 public class Menu extends JFrame implements ActionListener {
+    Color fundo = new Color(253,184,39);
+    JPanel menu = new JPanel();
     JButton jb = new JButton("JOGAR");
     JButton jb2 = new JButton("RANKING");
     JButton jb3 = new JButton("SAIR");
     Font fonteBotao = new Font("Courier New",Font.ITALIC | Font.BOLD,15);
     Font fonteLabel = new Font("Serif", Font.BOLD,50);
-    ImageIcon imagem = new ImageIcon(getClass().getResource("fundo.jpeg"));
-    JLabel fundo = new JLabel(imagem);
+    //ImageIcon imagem = new ImageIcon(getClass().getResource("fundo.jpeg"));
+   // JLabel fundo = new JLabel(imagem);
 
     JLabel titulo = new JLabel();
+
+
     public Menu(){
-       // add(BorderLayout.NORTH,jb); adiciona um botao em uma das margens da janela
-        add(fundo);
+        // add(BorderLayout.NORTH,jb); adiciona um botao em uma das margens da janela
+        //add(fundo);
+        //menu.setBackground(fundo);
 
         titulo.setFont(fonteLabel);
         titulo.setText("Batalha Naval");
@@ -52,6 +57,8 @@ public class Menu extends JFrame implements ActionListener {
         setResizable(false);
         setVisible(true);
     }
+
+    public void painelMenu(){}
 
     @Override
     public void actionPerformed(ActionEvent e) { //metodo do action listener que da a função dos botões
