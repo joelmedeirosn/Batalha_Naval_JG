@@ -8,15 +8,15 @@ import java.awt.event.ActionListener;
 public class Menu extends JFrame implements ActionListener {
     //Color fundo = new Color(253,184,39);
    //JPanel menu = new JPanel();
-    JButton bJogar = new JButton("JOGAR");
-    JButton bRanking = new JButton("RANKING");
-    JButton bSair = new JButton("SAIR");
-    Font fonteBotao = new Font("Courier New",Font.ITALIC | Font.BOLD,15);
-    Font fonteLabel = new Font("Serif", Font.BOLD,50);
+    private JButton bJogar = new JButton("JOGAR");
+    private JButton bRanking = new JButton("RANKING");
+    private JButton bSair = new JButton("SAIR");
+    private Font fonteBotao = new Font("Courier New",Font.ITALIC | Font.BOLD,15);
+    private Font fonteLabel = new Font("Serif", Font.BOLD,50);
    // ImageIcon imagem = new ImageIcon(getClass().getResource("fundo.jpeg"));
    // JLabel fundo = new JLabel(imagem);
 
-    JLabel titulo = new JLabel();
+    private JLabel titulo = new JLabel();
 
 
     public Menu(){
@@ -26,7 +26,7 @@ public class Menu extends JFrame implements ActionListener {
         titulo.setFont(fonteLabel);
         titulo.setText("Batalha Naval");
         titulo.setBounds(250,100,800,70);
-        add(titulo);//titulo batalha naval
+        add(titulo);
 
         this.botoes();
         this.configurarGuia();
@@ -43,7 +43,7 @@ public class Menu extends JFrame implements ActionListener {
     }
 
     public void botoes(){
-        bJogar.setFont(fonteBotao);//fonte da letra do botao
+        bJogar.setFont(fonteBotao);
         bRanking.setFont(fonteBotao);
         bSair.setFont(fonteBotao);
 
@@ -56,7 +56,7 @@ public class Menu extends JFrame implements ActionListener {
 
         bJogar.addActionListener(this);
         bRanking.addActionListener(this);
-        bSair.addActionListener(this);//botao ser tratado nessa mesma classe
+        bSair.addActionListener(this);
 
         bJogar.setBounds(300,240,200,70);//coordenadas do botao
         bRanking.setBounds(300,368,200,70);
