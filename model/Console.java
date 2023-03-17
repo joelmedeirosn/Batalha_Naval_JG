@@ -8,7 +8,7 @@ public class Console {
         //player2.setPlayerName();
         Tabuleiro gridP1 = new Tabuleiro(player1,1,1,1,1,0);
         Tabuleiro gridP2 = new Tabuleiro(player2,1,1,1,1,0); //avioes definido como zero pois falta implementa-lo.
-        gridP1.defender(gridP1);
+        gridP1.formatoNavios(gridP1);
         //gridP2.defender(gridP2);
         //gridP1.atacarNavio(gridP2);
         gridP2.atacarNavio(gridP1);

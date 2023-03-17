@@ -21,7 +21,7 @@ public class Tabuleiro extends Navios{
         }
     }
 
-    public void Coordenada1Cano(){
+    public void coordenada1Cano(){
         Scanner scanner = new Scanner(System.in);
         for(int i = 0; i < getQuant1Cano();i++){
             System.out.println("Selecione a Linha do navio de 1 cano #"+ (i + 1) +": ");
@@ -36,11 +36,11 @@ public class Tabuleiro extends Navios{
                 System.out.println("Selecione uma Coluna válida");
                 colunaD[i] = (scanner.nextInt() - 1);
             }
-            checagem(linhaD[i],colunaD[i]);
+            ganhou(linhaD[i],colunaD[i]);
         }
     }
 
-    public void Coordenada2Canos(){
+    public void coordenada2Canos(){
         Scanner scanner = new Scanner(System.in);
         for (int i = getQuant1Cano(); i < (getQuant1Cano() + getQuant2Canos());i++){
             System.out.println("Selecione a Linha do navio de 2 canos #"+ (i - (getQuant1Cano() - 1)) +" ");
@@ -56,11 +56,11 @@ public class Tabuleiro extends Navios{
                 System.out.println("Selecione uma Coluna válida");
                 colunaD[i] = (scanner.nextInt() - 1);
             }
-            checagem(linhaD[i],colunaD[i]);
+            ganhou(linhaD[i],colunaD[i]);
         }
     }
 
-    public void Coordenada3Canos(){
+    public void coordenada3Canos(){
         Scanner scanner = new Scanner(System.in);
         for (int i = (getQuant1Cano() + getQuant2Canos()); i < (getQuant1Cano() + getQuant2Canos() + getQuant3Canos());i++){
             System.out.println("Selecione a Linha do navio de 3 canos #"+ (i-(getQuant1Cano() - 1 )) +" ");
@@ -76,11 +76,11 @@ public class Tabuleiro extends Navios{
                 System.out.println("Selecione uma Coluna válida");
                 colunaD[i] = (scanner.nextInt() - 1);
             }
-            checagem(linhaD[i],colunaD[i]);
+            ganhou(linhaD[i],colunaD[i]);
         }
     }
 
-    public void Coordenada4Canos(){
+    public void coordenada4Canos(){
         Scanner scanner = new Scanner(System.in);
         for (int i = (getQuant1Cano() + getQuant2Canos() + getQuant3Canos()); i < (getQuant1Cano() + getQuant2Canos() + getQuant3Canos() + getQuant4Canos());i++){
             System.out.println("Selecione a Linha do navio de 4 canos #"+ (i-(getQuant1Cano() - 1 )) +" ");
@@ -96,14 +96,21 @@ public class Tabuleiro extends Navios{
                 System.out.println("Selecione uma Coluna válida");
                 colunaD[i] = (scanner.nextInt() - 1);
             }
-            checagem(linhaD[i],colunaD[i]);
+            ganhou(linhaD[i],colunaD[i]);
         }
     }
-    public void defender(Tabuleiro x) throws CoordenadaNavioException{ //falta implementar cada tipo de navio no tabuleiro e a exception
-        Coordenada1Cano();
-        Coordenada2Canos();
-        Coordenada3Canos();
-        Coordenada4Canos();
+
+    public void coordenadaAvioes(){
+        Scanner scanner = new Scanner(System.in);
+        for (int i = (getQuant1Cano() + getQuant2Canos() + getQuant3Canos() + getQuant4Canos()); i < (getQuant1Cano() + getQuant2Canos() + getQuant3Canos() + getQuant4Canos() + getQuantAvioes());i++){
+
+        }
+    }
+    public void formatoNavios(Tabuleiro x) throws CoordenadaNavioException{ //falta implementar cada tipo de navio no tabuleiro e a exception
+        coordenada1Cano();
+        coordenada2Canos();
+        coordenada3Canos();
+        coordenada4Canos();
 
         for(int i = 0; i < (getQuant1Cano()); i++) {
             // n esquecer -> x.dimensoes.length
@@ -138,7 +145,7 @@ public class Tabuleiro extends Navios{
         }
     }
 
-    public boolean checagem(int i, int j){
+    public boolean ganhou(int i, int j){
         // Checagem da vitoria do player
         if(dimensoes[i][j] == '□'){
             return true;
