@@ -16,21 +16,22 @@ public class Navios{
 
     }
 
-    public void navioAvioes(){
-        int i,j;
-        for (i=0;i<=2;i++){
-            for(j=0;j<=2;j++){
-                if(i==0 || i>=1 && i<=2 && j==1){
-                    System.out.print("P");
-
-                } else{
-                    System.out.print("□");
-
-                }
-            }
-            System.out.println();
-        }
+    public char navioAvioes(){
+        return 'P';
     }
+   /* int i,j;
+        for (i=0;i<=2;i++){
+        for(j=0;j<=2;j++){
+            if(i==0 || i>=1 && i<=2 && j==1){
+                return 'P';
+            } else{
+                return'□';
+
+            }
+        }
+        System.out.println();
+    }
+        return '□';*/
 
     public char navio(){
         return 'N';

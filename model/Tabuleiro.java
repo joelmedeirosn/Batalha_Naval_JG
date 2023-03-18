@@ -3,7 +3,7 @@ package model;
 import java.util.Scanner;
 import java.lang.*;
 
-public class Tabuleiro extends Navios{
+public class Tabuleiro extends Navios implements Grelha{
     Player player;
     private char[][] dimensoes = new char[10][10];
     private int[] linhaA = new int [3];
@@ -14,6 +14,10 @@ public class Tabuleiro extends Navios{
     public Tabuleiro(Player player, int quant1Cano, int quant2Canos, int quant3Canos, int quant4Canos, int quantAvioes) {
         super(quant1Cano,quant2Canos,quant3Canos,quant4Canos,quantAvioes);
         this.player = player;
+        grelha();
+    }
+
+    public void grelha(){
         for(int i=0;i<dimensoes.length; i++) {
             for (int j = 0; j < dimensoes.length; j++) {
                 dimensoes[i][j] = '□';
@@ -21,7 +25,7 @@ public class Tabuleiro extends Navios{
         }
     }
 
-    public void coordenada1Cano(){
+    public void coordenada1Cano(){ //implementar as exceptions em cada um dos metodos
         Scanner scanner = new Scanner(System.in);
         for(int i = 0; i < getQuant1Cano();i++){
             System.out.println("Selecione a Linha do navio de 1 cano #"+ (i + 1) +": ");
@@ -103,14 +107,29 @@ public class Tabuleiro extends Navios{
     public void coordenadaAvioes(){
         Scanner scanner = new Scanner(System.in);
         for (int i = (getQuant1Cano() + getQuant2Canos() + getQuant3Canos() + getQuant4Canos()); i < (getQuant1Cano() + getQuant2Canos() + getQuant3Canos() + getQuant4Canos() + getQuantAvioes());i++){
-
+            System.out.println("Selecione a Linha do navio porta-avioes #"+ (i-(getQuant1Cano() - 1 )) +" ");
+            linhaD[i] = (scanner.nextInt() - 1);
+            while(linhaD[i] > 7 || linhaD[i] < 0){
+                System.out.println("Os navios porta-avioes devem ter suas linhas definidas entre 1 e 8");
+                linhaD[i] = (scanner.nextInt()-1);
+            }
+            System.out.println("Selecione a Coluna do navio porta-avioes #"+ (i-(getQuant1Cano() - 1 )) +" ");
+            colunaD[i] = (scanner.nextInt() - 1);
+            while(colunaD[i] > 7 || colunaD[i] < 0){
+                System.out.println("Os navios porta-avioes devem ter suas colunas definidas entre 1 e 8");
+                System.out.println("Selecione uma Coluna válida");
+                colunaD[i] = (scanner.nextInt() - 1);
+            }
+            ganhou(linhaD[i],colunaD[i]);
         }
     }
+
     public void formatoNavios(Tabuleiro x) throws CoordenadaNavioException{ //falta implementar cada tipo de navio no tabuleiro e a exception
         coordenada1Cano();
         coordenada2Canos();
         coordenada3Canos();
         coordenada4Canos();
+        coordenadaAvioes();
 
         for(int i = 0; i < (getQuant1Cano()); i++) {
             // n esquecer -> x.dimensoes.length
@@ -135,6 +154,13 @@ public class Tabuleiro extends Navios{
             x.dimensoes[linhaD[i]][colunaD[i]+1] = navio();
             x.dimensoes[linhaD[i]][colunaD[i]+2] = navio();
             x.dimensoes[linhaD[i]][colunaD[i]+3] = navio();
+        }
+        for(int i = (getQuant1Cano()+getQuant2Canos()+getQuant3Canos()+getQuant4Canos()); i < (getQuant1Cano()+getQuant2Canos()+getQuant3Canos()+getQuant4Canos()+getQuantAvioes()); i++) {
+            x.dimensoes[linhaD[i]][colunaD[i]] = navioAvioes();
+            x.dimensoes[linhaD[i]][colunaD[i]+1] = navioAvioes();
+            x.dimensoes[linhaD[i]][colunaD[i]+2] = navioAvioes();
+            x.dimensoes[linhaD[i]+1][colunaD[i]+1] = navioAvioes();
+            x.dimensoes[linhaD[i]+2][colunaD[i]+1] = navioAvioes();
         }
 
         for(int i = 0; i< x.dimensoes.length; i++){

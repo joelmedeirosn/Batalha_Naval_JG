@@ -17,9 +17,8 @@ public class Player {
         System.out.println("Digite seu nome, jogador:");
         playerName = input.nextLine();
 
-        while (playerName.length()<=2 || playerName.length()>=16){ //NomeInvalidoException
-            System.out.println("Digite um nome entre 3 e 15 caracteres.");
-            playerName = input.nextLine();
+        if (playerName.length()<=2 || playerName.length()>=16){
+           throw new NomeInvalidoException(); //ajeitar depois com try catch (provavelmente)
         }
 
     }
