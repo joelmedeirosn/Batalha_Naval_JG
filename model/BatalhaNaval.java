@@ -3,7 +3,7 @@ package model;
 import java.util.Scanner;
 import java.lang.*;
 
-public class Tabuleiro extends Navios implements Grelha{
+public class BatalhaNaval extends Navios implements Grelha{
     Player player;
     private char[][] dimensoes = new char[10][10];
     private int[] linhaA = new int [3];
@@ -11,7 +11,7 @@ public class Tabuleiro extends Navios implements Grelha{
     private int[] colunaA = new int [3];
     private int[] colunaD = new int [10];
 
-    public Tabuleiro(Player player, int quant1Cano, int quant2Canos, int quant3Canos, int quant4Canos, int quantAvioes) {
+    public BatalhaNaval(Player player, int quant1Cano, int quant2Canos, int quant3Canos, int quant4Canos, int quantAvioes) {
         super(quant1Cano,quant2Canos,quant3Canos,quant4Canos,quantAvioes);
         this.player = player;
         grelha();
@@ -124,7 +124,7 @@ public class Tabuleiro extends Navios implements Grelha{
         }
     }
 
-    public void formatoNavios(Tabuleiro x) throws CoordenadaNavioException{ //falta implementar cada tipo de navio no tabuleiro e a exception
+    public void formatoNavios(BatalhaNaval x) throws CoordenadaNavioException{ //falta implementar cada tipo de navio no tabuleiro e a exception
         coordenada1Cano();
         coordenada2Canos();
         coordenada3Canos();
@@ -180,7 +180,7 @@ public class Tabuleiro extends Navios implements Grelha{
         }
     }
 
-    public void atacarNavio(Tabuleiro x){
+    public void atacarNavio(BatalhaNaval x){
 
         Scanner scanner = new Scanner(System.in);
         //while(getQuant1Cano()!=0 || getQuant2Canos()!=0 || getQuant3Canos()!=0 || getQuant4Canos()!=0 || getQuantAvioes()!=0){

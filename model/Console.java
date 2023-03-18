@@ -6,8 +6,8 @@ public class Console {
         Player player2 = new Player();
         //player1.setPlayerName();
         //player2.setPlayerName();
-        Tabuleiro gridP1 = new Tabuleiro(player1,0,0,0,0,1);
-        Tabuleiro gridP2 = new Tabuleiro(player2,1,1,1,1,0); //avioes definido como zero pois falta implementa-lo.
+        BatalhaNaval gridP1 = new BatalhaNaval(player1,0,0,0,0,1);
+        BatalhaNaval gridP2 = new BatalhaNaval(player2,1,1,1,1,0); //avioes definido como zero pois falta implementa-lo.
         gridP1.formatoNavios(gridP1);
         //gridP2.defender(gridP2);
         //gridP1.atacarNavio(gridP2);

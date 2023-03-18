@@ -1,11 +1,17 @@
 package model;
 
-public class Navios{
+public abstract class Navios{
     private int quantAvioes; //4
     private int quant4Canos; //3
     private int quant3Canos; //2
     private int quant2Canos; //1
     private int quant1Cano; //1
+    private char[][] dimensoes;
+    private int[] linhaA = new int [3];
+    private int[] linhaD = new int [10];
+    private int[] colunaA = new int [3];
+    private int[] colunaD = new int [10];
+
 
     public Navios(int quant1Cano, int quant2Canos, int quant3Canos, int quant4Canos, int quantAvioes){
         this.quant1Cano = quant1Cano;
@@ -19,39 +25,10 @@ public class Navios{
     public char navioAvioes(){
         return 'P';
     }
-   /* int i,j;
-        for (i=0;i<=2;i++){
-        for(j=0;j<=2;j++){
-            if(i==0 || i>=1 && i<=2 && j==1){
-                return 'P';
-            } else{
-                return'□';
-
-            }
-        }
-        System.out.println();
-    }
-        return '□';*/
 
     public char navio(){
         return 'N';
     }
-
-    // public void navio4Canos(){
-    //     for(int i=1;i<5;i++){
-    //         System.out.println("N");
-    //      }
-    // }
-
-    // public void navio3Canos(){
-    //     for(int i=1;i<4;i++){
-    //         System.out.println("N");
-    //     }
-    //  }
-
-    // public char navio2Canos(){
-    //     return 'N';
-    //     }
 
 
     public int getQuantAvioes() {
