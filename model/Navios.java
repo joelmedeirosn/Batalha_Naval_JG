@@ -47,6 +47,23 @@ public abstract class Navios{
         return quant1Cano;
     }
 
+    public void setQuantAvioes(int quantAvioes) {
+        this.quantAvioes = quantAvioes;
+    }
 
+    public void setQuant4Canos(int quant4Canos) {
+        this.quant4Canos = quant4Canos;
+    }
 
+    public void setQuant3Canos(int quant3Canos) {
+        this.quant3Canos = quant3Canos;
+    }
+
+    public void setQuant2Canos(int quant2Canos) {
+        this.quant2Canos = quant2Canos;
+    }
+
+    public void setQuant1Cano(int quant1Cano) {
+        this.quant1Cano = quant1Cano;
+    }
 }
