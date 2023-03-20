@@ -58,7 +58,7 @@ public class Menu extends JFrame implements ActionListener {
         bRanking.addActionListener(this);
         bSair.addActionListener(this);
 
-        bJogar.setBounds(300,240,200,70);//coordenadas do botao
+        bJogar.setBounds(300,240,200,70);
         bRanking.setBounds(300,368,200,70);
         bSair.setBounds(300,496,200,70);
 

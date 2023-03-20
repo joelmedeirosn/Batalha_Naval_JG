@@ -8,10 +8,26 @@ import java.awt.event.ActionListener;
 public class NomeJogadores extends JFrame implements ActionListener {
     private JButton normal = new JButton("NORMAL");
     private JButton custom = new JButton("CUSTOM");
-
     private Font fonteBotao = new Font("Courier New",Font.ITALIC | Font.BOLD,15);
+    private JPanel painel = new JPanel();
 
     public NomeJogadores(){
+        normal.setAlignmentX(CENTER_ALIGNMENT);
+        normal.setMaximumSize(new Dimension(100,40));
+        normal.addActionListener(this);
+
+        custom.setAlignmentX(CENTER_ALIGNMENT);
+        custom.setMaximumSize(new Dimension(100,40));
+        custom.addActionListener(this);
+
+        painel.setLayout(new BoxLayout(painel, BoxLayout.PAGE_AXIS));
+        painel.setPreferredSize(new Dimension(800,800));
+        painel.add(Box.createRigidArea(new Dimension(0,10)));
+        painel.add(normal);
+        painel.add(Box.createRigidArea(new Dimension(0,50)));
+        painel.add(custom);
+        add(painel);
+
         this.configurarGuia();
         botoes();
         textField();
@@ -19,20 +35,22 @@ public class NomeJogadores extends JFrame implements ActionListener {
     }
 
     public void botoes(){
-        normal.setFont(fonteBotao);
-        normal.setForeground(Color.cyan);
-        normal.setBackground(Color.darkGray);
+        normal.setAlignmentX(CENTER_ALIGNMENT);
+        normal.setMaximumSize(new Dimension(200,80));
         normal.addActionListener(this);
-        normal.setBounds(300,368,200,70);
-        add(normal);
 
-        custom.setFont(fonteBotao);
-        custom.setForeground(Color.cyan);
-        custom.setBackground(Color.darkGray);
+        custom.setAlignmentX(CENTER_ALIGNMENT);
+        custom.setMaximumSize(new Dimension(200,80));
         custom.addActionListener(this);
-        custom.setBounds(300,396,200,70);
-        add(custom);
-        setLayout(null);
+
+        painel.setLayout(new BoxLayout(painel, BoxLayout.PAGE_AXIS));
+        painel.setPreferredSize(new Dimension(800,800));
+        painel.add(Box.createRigidArea(new Dimension(0,200)));
+        painel.add(normal);
+        painel.add(Box.createRigidArea(new Dimension(0,50)));
+        painel.add(custom);
+        add(painel);
+
     }
     public void textField(){
         setLayout(new FlowLayout());

@@ -1,4 +1,12 @@
 package controller;
 
-public class Movimento {
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Movimento implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
 }

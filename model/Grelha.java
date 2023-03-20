@@ -1,6 +1,5 @@
 package model;
 
 public interface Grelha {
-
-    public default void grelha(){}
+    public void grelha();
 }
