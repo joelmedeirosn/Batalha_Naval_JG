@@ -15,7 +15,7 @@ public class Player {
 
     public void modo() throws CoordenadaNavioException { //metodo que seleciona o modo de jogo, nao testado ainda
         BatalhaNaval bn = new BatalhaNaval(player,4,3,2,1,1);
-        BatalhaNavalCustom bnc = new BatalhaNavalCustom(4,3,2,1,1);
+        BatalhaNavalCustom bnc = new BatalhaNavalCustom(player,4,3,2,1,1);
         Scanner scanner = new Scanner(System.in);
         String modoSelecionado;
         System.out.println("Digite 1 para modo padrao, 2 para batalha naval custom.");

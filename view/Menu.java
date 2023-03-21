@@ -13,7 +13,7 @@ public class Menu extends JFrame implements ActionListener {
     private Player player;
 
     private JButton jogar = new JButton("JOGAR");
-    private JButton ranking = new JButton("RANKING");
+    private JButton recorde = new JButton("RECORDE");
     private JButton sair = new JButton("SAIR");
     private Font fonteBotao = new Font("Courier New",Font.ITALIC | Font.BOLD,15);
     private Font fonteLabel = new Font("Serif", Font.BOLD,50);
@@ -48,26 +48,26 @@ public class Menu extends JFrame implements ActionListener {
 
     public void botoes(){
         jogar.setFont(fonteBotao);
-        ranking.setFont(fonteBotao);
+        recorde.setFont(fonteBotao);
         sair.setFont(fonteBotao);
 
         jogar.setForeground(Color.cyan);
         jogar.setBackground(Color.darkGray);
-        ranking.setForeground(Color.cyan);
-        ranking.setBackground(Color.darkGray);
+        recorde.setForeground(Color.cyan);
+        recorde.setBackground(Color.darkGray);
         sair.setForeground(Color.cyan);
         sair.setBackground(Color.darkGray);
 
         jogar.addActionListener(this);
-        ranking.addActionListener(this);
+        recorde.addActionListener(this);
         sair.addActionListener(this);
 
         jogar.setBounds(300,240,200,70);
-        ranking.setBounds(300,368,200,70);
+        recorde.setBounds(300,368,200,70);
         sair.setBounds(300,496,200,70);
 
         add(jogar);
-        add(ranking);
+        add(recorde);
         add(sair);
         setLayout(null);
     }
