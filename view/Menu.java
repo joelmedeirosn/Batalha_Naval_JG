@@ -5,12 +5,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import model.*;
+
 public class Menu extends JFrame implements ActionListener {
     //Color fundo = new Color(253,184,39);
    //JPanel menu = new JPanel();
-    private JButton bJogar = new JButton("JOGAR");
-    private JButton bRanking = new JButton("RANKING");
-    private JButton bSair = new JButton("SAIR");
+    private Player player;
+
+    private JButton jogar = new JButton("JOGAR");
+    private JButton ranking = new JButton("RANKING");
+    private JButton sair = new JButton("SAIR");
     private Font fonteBotao = new Font("Courier New",Font.ITALIC | Font.BOLD,15);
     private Font fonteLabel = new Font("Serif", Font.BOLD,50);
    // ImageIcon imagem = new ImageIcon(getClass().getResource("fundo.jpeg"));
@@ -43,39 +47,39 @@ public class Menu extends JFrame implements ActionListener {
     }
 
     public void botoes(){
-        bJogar.setFont(fonteBotao);
-        bRanking.setFont(fonteBotao);
-        bSair.setFont(fonteBotao);
+        jogar.setFont(fonteBotao);
+        ranking.setFont(fonteBotao);
+        sair.setFont(fonteBotao);
 
-        bJogar.setForeground(Color.cyan);
-        bJogar.setBackground(Color.darkGray);
-        bRanking.setForeground(Color.cyan);
-        bRanking.setBackground(Color.darkGray);
-        bSair.setForeground(Color.cyan);
-        bSair.setBackground(Color.darkGray);
+        jogar.setForeground(Color.cyan);
+        jogar.setBackground(Color.darkGray);
+        ranking.setForeground(Color.cyan);
+        ranking.setBackground(Color.darkGray);
+        sair.setForeground(Color.cyan);
+        sair.setBackground(Color.darkGray);
 
-        bJogar.addActionListener(this);
-        bRanking.addActionListener(this);
-        bSair.addActionListener(this);
+        jogar.addActionListener(this);
+        ranking.addActionListener(this);
+        sair.addActionListener(this);
 
-        bJogar.setBounds(300,240,200,70);
-        bRanking.setBounds(300,368,200,70);
-        bSair.setBounds(300,496,200,70);
+        jogar.setBounds(300,240,200,70);
+        ranking.setBounds(300,368,200,70);
+        sair.setBounds(300,496,200,70);
 
-        add(bJogar);
-        add(bRanking);
-        add(bSair);
+        add(jogar);
+        add(ranking);
+        add(sair);
         setLayout(null);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) { //metodo do action listener que da a função dos botões
-        if(e.getSource()== bJogar){
-            NomeJogadores nomeJogadores = new NomeJogadores();
+        if(e.getSource()== jogar){
+            ModoJogo nomeJogadores = new ModoJogo();
             this.dispose();
             nomeJogadores.setVisible(true);
         }
-        if(e.getSource()== bSair){
+        if(e.getSource()== sair){
             System.exit(0);
         }
 
