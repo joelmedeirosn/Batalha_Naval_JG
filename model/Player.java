@@ -13,21 +13,8 @@ public class Player {
     public Player(){
     }
 
-    public void modo() throws CoordenadaNavioException { //metodo que seleciona o modo de jogo, nao testado ainda
-        BatalhaNaval bn = new BatalhaNaval(player,4,3,2,1,1);
-        BatalhaNavalCustom bnc = new BatalhaNavalCustom(player,4,3,2,1,1);
-        Scanner scanner = new Scanner(System.in);
-        String modoSelecionado;
-        System.out.println("Digite 1 para modo padrao, 2 para batalha naval custom.");
-        modoSelecionado = scanner.nextLine();
-        if(modoSelecionado.equals("1")){
-            bn.formatoNavios(bn);
-        } else if(modoSelecionado.equals("2")){
-            bnc.custom();
-        } else {
-            System.out.println("modo de jogo nao existente.");
-        }
-    }
+
+
 
     public void setPlayerName() throws NomeInvalidoException{
         Scanner input = new Scanner(System.in);

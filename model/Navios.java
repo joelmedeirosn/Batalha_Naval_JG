@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Scanner;
+
 public abstract class Navios{
     private int quantAvioes; //4
     private int quant4Canos; //3
@@ -11,6 +13,7 @@ public abstract class Navios{
     private int[] linhaD = new int [10];
     private int[] colunaA = new int [3];
     private int[] colunaD = new int [10];
+
 
 
     public Navios(int quant1Cano, int quant2Canos, int quant3Canos, int quant4Canos, int quantAvioes){

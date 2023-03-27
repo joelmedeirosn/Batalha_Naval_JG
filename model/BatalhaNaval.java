@@ -11,6 +11,7 @@ public class BatalhaNaval extends Navios implements Grelha{
     private int[] colunaA = new int [3];
     private int[] colunaD = new int [10];
 
+
     public BatalhaNaval(Player player, int quant1Cano, int quant2Canos, int quant3Canos, int quant4Canos, int quantAvioes) {
         super(quant1Cano,quant2Canos,quant3Canos,quant4Canos,quantAvioes);
         this.player = player;
@@ -25,111 +26,121 @@ public class BatalhaNaval extends Navios implements Grelha{
         }
     }
 
-    public void coordenada1Cano(){ //implementar as exceptions em cada um dos metodos
+    public void coordenada1Cano() throws CoordenadaNavioException{ //implementar as exceptions em cada um dos metodos
         Scanner scanner = new Scanner(System.in);
         for(int i = 0; i < getQuant1Cano();i++){
             System.out.println("Selecione a Linha do navio de 1 cano #"+ (i + 1) +": ");
             linhaD[i] = (scanner.nextInt() - 1);
-            while(linhaD[i] > 9 || linhaD[i] < 0){
-                System.out.println("Selecione uma Linha válida");
-                linhaD[i] = (scanner.nextInt() - 1);
+
+            if (linhaD[i] > 9 || linhaD[i] < 0){
+                CoordenadaNavioException e = new CoordenadaNavioException();
+                throw e;
             }
+
             System.out.println("Selecione a Coluna do navio de 1 cano #"+ (i + 1) +": ");
             colunaD[i] = (scanner.nextInt() - 1);
-            while(colunaD[i] > 9 || colunaD[i] < 0){
-                System.out.println("Selecione uma Coluna válida");
-                colunaD[i] = (scanner.nextInt() - 1);
+
+            if (colunaD[i] > 9 || colunaD[i] < 0){
+                CoordenadaNavioException e = new CoordenadaNavioException();
+                throw e;
             }
             ganhou(linhaD[i],colunaD[i]);
         }
     }
 
-    public void coordenada2Canos(){
+    public void coordenada2Canos() throws CoordenadaNavioException{
         Scanner scanner = new Scanner(System.in);
         for (int i = getQuant1Cano(); i < (getQuant1Cano() + getQuant2Canos());i++){
             System.out.println("Selecione a Linha do navio de 2 canos #"+ (i - (getQuant1Cano() - 1)) +" ");
             linhaD[i] = (scanner.nextInt() - 1);
-            while(linhaD[i] > 9 || linhaD[i] < 0){
-                System.out.println("Selecione uma Linha válida");
-                linhaD[i] = (scanner.nextInt() - 1);
+            if (linhaD[i] > 9 || linhaD[i] < 0){
+                CoordenadaNavioException e = new CoordenadaNavioException();
+                throw e;
             }
+
             System.out.println("Selecione a Coluna do navio de 2 canos #"+ (i-(getQuant1Cano() - 1 )) +" ");
             colunaD[i] = (scanner.nextInt() - 1);
-            while(colunaD[i] > 8 || colunaD[i] < 0){
+            //
+            if (colunaD[i] > 8 || colunaD[i] < 0){
                 System.out.println("Os Navios de 2 Canos devem ter suas colunas definidas entre 1 e 9");
-                System.out.println("Selecione uma Coluna válida");
-                colunaD[i] = (scanner.nextInt() - 1);
+                CoordenadaNavioException e = new CoordenadaNavioException();
+                throw e;
             }
             ganhou(linhaD[i],colunaD[i]);
         }
     }
 
-    public void coordenada3Canos(){
+    public void coordenada3Canos() throws CoordenadaNavioException{
         Scanner scanner = new Scanner(System.in);
         for (int i = (getQuant1Cano() + getQuant2Canos()); i < (getQuant1Cano() + getQuant2Canos() + getQuant3Canos());i++){
             System.out.println("Selecione a Linha do navio de 3 canos #"+ (i-(getQuant1Cano() - 1 )) +" ");
             linhaD[i] = (scanner.nextInt() - 1);
-            while(linhaD[i] > 9 || linhaD[i] < 0){
-                System.out.println("Selecione uma Linha válida");
-                linhaD[i] = (scanner.nextInt() - 1);
+            if (linhaD[i] > 9 || linhaD[i] < 0){
+                CoordenadaNavioException e = new CoordenadaNavioException();
+                throw e;
             }
             System.out.println("Selecione a Coluna do navio de 3 canos #"+ (i-(getQuant1Cano() - 1 )) +" ");
             colunaD[i] = (scanner.nextInt() - 1);
-            while(colunaD[i] > 7 || colunaD[i] < 0){
+            if (colunaD[i] > 7 || colunaD[i] < 0){
                 System.out.println("Os Navios de 3 Canos devem ter suas colunas definidas entre 1 e 8");
-                System.out.println("Selecione uma Coluna válida");
-                colunaD[i] = (scanner.nextInt() - 1);
+                CoordenadaNavioException e = new CoordenadaNavioException();
+                throw e;
             }
             ganhou(linhaD[i],colunaD[i]);
         }
     }
 
-    public void coordenada4Canos(){
+    public void coordenada4Canos() throws CoordenadaNavioException{
         Scanner scanner = new Scanner(System.in);
         for (int i = (getQuant1Cano() + getQuant2Canos() + getQuant3Canos()); i < (getQuant1Cano() + getQuant2Canos() + getQuant3Canos() + getQuant4Canos());i++){
             System.out.println("Selecione a Linha do navio de 4 canos #"+ (i-(getQuant1Cano() - 1 )) +" ");
             linhaD[i] = (scanner.nextInt() - 1);
-            while(linhaD[i] > 9 || linhaD[i] < 0){
-                System.out.println("Selecione uma Linha válida");
-                linhaD[i] = (scanner.nextInt() - 1);
+            if (linhaD[i] > 9 || linhaD[i] < 0){
+                CoordenadaNavioException e = new CoordenadaNavioException();
+                throw e;
             }
             System.out.println("Selecione a Coluna do navio de 4 canos #"+ (i-(getQuant1Cano() - 1 )) +" ");
             colunaD[i] = (scanner.nextInt() - 1);
-            while(colunaD[i] > 6 || colunaD[i] < 0){
+            if (colunaD[i] > 6 || colunaD[i] < 0){
                 System.out.println("Os Navios de 4 Canos devem ter suas colunas definidas entre 1 e 7");
-                System.out.println("Selecione uma Coluna válida");
-                colunaD[i] = (scanner.nextInt() - 1);
+                CoordenadaNavioException e = new CoordenadaNavioException();
+                throw e;
             }
             ganhou(linhaD[i],colunaD[i]);
         }
     }
 
-    public void coordenadaAvioes(){
+    public void coordenadaAvioes() throws CoordenadaNavioException{
         Scanner scanner = new Scanner(System.in);
         for (int i = (getQuant1Cano() + getQuant2Canos() + getQuant3Canos() + getQuant4Canos()); i < (getQuant1Cano() + getQuant2Canos() + getQuant3Canos() + getQuant4Canos() + getQuantAvioes());i++){
             System.out.println("Selecione a Linha do navio porta-avioes #"+ (i-(getQuant1Cano() - 1 )) +" ");
             linhaD[i] = (scanner.nextInt() - 1);
-            while(linhaD[i] > 7 || linhaD[i] < 0){
+            //
+            if (linhaD[i] > 7 || linhaD[i] < 0){
                 System.out.println("Os navios porta-avioes devem ter suas linhas definidas entre 1 e 8");
-                linhaD[i] = (scanner.nextInt()-1);
+                CoordenadaNavioException e = new CoordenadaNavioException();
+                throw e;
             }
             System.out.println("Selecione a Coluna do navio porta-avioes #"+ (i-(getQuant1Cano() - 1 )) +" ");
             colunaD[i] = (scanner.nextInt() - 1);
-            while(colunaD[i] > 7 || colunaD[i] < 0){
+            if (colunaD[i] > 7 || colunaD[i] < 0){
                 System.out.println("Os navios porta-avioes devem ter suas colunas definidas entre 1 e 8");
-                System.out.println("Selecione uma Coluna válida");
-                colunaD[i] = (scanner.nextInt() - 1);
+                CoordenadaNavioException e = new CoordenadaNavioException();
+                throw e;
             }
             ganhou(linhaD[i],colunaD[i]);
         }
     }
 
     public void formatoNavios(BatalhaNaval x) throws CoordenadaNavioException{ //falta implementar cada tipo de navio no tabuleiro e a exception
-        coordenada1Cano();
-        coordenada2Canos();
-        coordenada3Canos();
-        coordenada4Canos();
-        coordenadaAvioes();
+        try {coordenada1Cano();
+            coordenada2Canos();
+            coordenada3Canos();
+            coordenada4Canos();
+            coordenadaAvioes();
+        } catch (CoordenadaNavioException e) {
+            System.out.println(e.getMessage());
+        }
 
         for(int i = 0; i < (getQuant1Cano()); i++) {
             // n esquecer -> x.dimensoes.length
