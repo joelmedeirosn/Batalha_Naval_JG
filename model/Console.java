@@ -3,7 +3,7 @@ package model;
 import java.util.Scanner;
 
 public class Console {
-    public static void modo() throws CoordenadaNavioException {
+    public static void InicioModo() throws CoordenadaNavioException {
         Scanner scanner = new Scanner(System.in);
         String modoSelecionado;
 
@@ -35,9 +35,9 @@ public class Console {
             BatalhaNaval gridP1 = new BatalhaNaval(player1,a,b,c,d,e);
             BatalhaNaval gridP2 = new BatalhaNaval(player2,a,b,c,d,e);
             gridP1.formatoNavios(gridP1); // metodo de defesa
-            gridP2.formatoNavios(gridP2); // metodo de defesa
+            //gridP2.formatoNavios(gridP2); // metodo de defesa
             gridP1.atacarNavio(gridP2);
-            gridP2.atacarNavio(gridP1);
+            //gridP2.atacarNavio(gridP1);
         } else {
             System.out.println("modo de jogo nao existente.");
         }
@@ -45,7 +45,7 @@ public class Console {
 
 
     public static void main(String[] args) throws CoordenadaNavioException {
-        modo();
+        InicioModo();
     }
 }
 

@@ -133,46 +133,54 @@ public class BatalhaNaval extends Navios implements Grelha{
     }
 
     public void formatoNavios(BatalhaNaval x) throws CoordenadaNavioException{ //falta implementar cada tipo de navio no tabuleiro e a exception
-        try {coordenada1Cano();
+        try {
+
+            coordenada1Cano();
+
             coordenada2Canos();
+
             coordenada3Canos();
+
             coordenada4Canos();
+
             coordenadaAvioes();
+
+            for(int i = 0; i < (getQuant1Cano()); i++) {
+                // n esquecer -> x.dimensoes.length
+                x.dimensoes[linhaD[i]][colunaD[i]] = navio();
+            }
+
+            for(int i = (getQuant1Cano()); i < (getQuant2Canos() + getQuant1Cano()); i++) {
+                // n esquecer -> x.dimensoes.length
+                x.dimensoes[linhaD[i]][colunaD[i]] = navio();
+                x.dimensoes[linhaD[i]][colunaD[i]+1] = navio();
+            }
+
+            for(int i = (getQuant1Cano()+getQuant2Canos()); i < (getQuant1Cano()+getQuant2Canos()+getQuant3Canos()); i++) {
+                // n esquecer -> x.dimensoes.length
+                x.dimensoes[linhaD[i]][colunaD[i]] = navio();
+                x.dimensoes[linhaD[i]][colunaD[i]+1] = navio();
+                x.dimensoes[linhaD[i]][colunaD[i]+2] = navio();
+            }
+            for(int i = (getQuant1Cano()+getQuant2Canos()+getQuant3Canos()); i < (getQuant1Cano()+getQuant2Canos()+getQuant3Canos()+getQuant4Canos()); i++) {
+                // n esquecer -> x.dimensoes.length
+                x.dimensoes[linhaD[i]][colunaD[i]] = navio();
+                x.dimensoes[linhaD[i]][colunaD[i]+1] = navio();
+                x.dimensoes[linhaD[i]][colunaD[i]+2] = navio();
+                x.dimensoes[linhaD[i]][colunaD[i]+3] = navio();
+            }
+            for(int i = (getQuant1Cano()+getQuant2Canos()+getQuant3Canos()+getQuant4Canos()); i < (getQuant1Cano()+getQuant2Canos()+getQuant3Canos()+getQuant4Canos()+getQuantAvioes()); i++) {
+                x.dimensoes[linhaD[i]][colunaD[i]] = navioAvioes();
+                x.dimensoes[linhaD[i]][colunaD[i]+1] = navioAvioes();
+                x.dimensoes[linhaD[i]][colunaD[i]+2] = navioAvioes();
+                x.dimensoes[linhaD[i]+1][colunaD[i]+1] = navioAvioes();
+                x.dimensoes[linhaD[i]+2][colunaD[i]+1] = navioAvioes();
+            }
         } catch (CoordenadaNavioException e) {
             System.out.println(e.getMessage());
         }
 
-        for(int i = 0; i < (getQuant1Cano()); i++) {
-            // n esquecer -> x.dimensoes.length
-            x.dimensoes[linhaD[i]][colunaD[i]] = navio();
-        }
 
-        for(int i = (getQuant1Cano()); i < (getQuant2Canos() + getQuant1Cano()); i++) {
-            // n esquecer -> x.dimensoes.length
-            x.dimensoes[linhaD[i]][colunaD[i]] = navio();
-            x.dimensoes[linhaD[i]][colunaD[i]+1] = navio();
-        }
-
-        for(int i = (getQuant1Cano()+getQuant2Canos()); i < (getQuant1Cano()+getQuant2Canos()+getQuant3Canos()); i++) {
-            // n esquecer -> x.dimensoes.length
-            x.dimensoes[linhaD[i]][colunaD[i]] = navio();
-            x.dimensoes[linhaD[i]][colunaD[i]+1] = navio();
-            x.dimensoes[linhaD[i]][colunaD[i]+2] = navio();
-        }
-        for(int i = (getQuant1Cano()+getQuant2Canos()+getQuant3Canos()); i < (getQuant1Cano()+getQuant2Canos()+getQuant3Canos()+getQuant4Canos()); i++) {
-            // n esquecer -> x.dimensoes.length
-            x.dimensoes[linhaD[i]][colunaD[i]] = navio();
-            x.dimensoes[linhaD[i]][colunaD[i]+1] = navio();
-            x.dimensoes[linhaD[i]][colunaD[i]+2] = navio();
-            x.dimensoes[linhaD[i]][colunaD[i]+3] = navio();
-        }
-        for(int i = (getQuant1Cano()+getQuant2Canos()+getQuant3Canos()+getQuant4Canos()); i < (getQuant1Cano()+getQuant2Canos()+getQuant3Canos()+getQuant4Canos()+getQuantAvioes()); i++) {
-            x.dimensoes[linhaD[i]][colunaD[i]] = navioAvioes();
-            x.dimensoes[linhaD[i]][colunaD[i]+1] = navioAvioes();
-            x.dimensoes[linhaD[i]][colunaD[i]+2] = navioAvioes();
-            x.dimensoes[linhaD[i]+1][colunaD[i]+1] = navioAvioes();
-            x.dimensoes[linhaD[i]+2][colunaD[i]+1] = navioAvioes();
-        }
 
         for(int i = 0; i< x.dimensoes.length; i++){
             for(int j = 0; j< x.dimensoes.length; j++){
@@ -196,7 +204,7 @@ public class BatalhaNaval extends Navios implements Grelha{
         Scanner scanner = new Scanner(System.in);
         //while(getQuant1Cano()!=0 || getQuant2Canos()!=0 || getQuant3Canos()!=0 || getQuant4Canos()!=0 || getQuantAvioes()!=0){
         for(int i = 0; i < 3;i++){
-            System.out.println("Selecione a Linha, ");
+            System.out.println("Selecione a Linha de Ataque");
             System.out.println("1, 2, 3, 4, 5, 6, 7, 8, 9 ou 10:");
             linhaA[i] = (scanner.nextInt() - 1);
             while (linhaA[i] > 9 || linhaA[i] < 0) {
@@ -204,7 +212,7 @@ public class BatalhaNaval extends Navios implements Grelha{
                 System.out.println("1, 2, 3, 4, 5, 6, 7, 8, 9 ou 10:");
                 linhaA[i] = (scanner.nextInt() - 1);
             }
-            System.out.println("Selecione a Coluna");
+            System.out.println("Selecione a Coluna de Ataque");
             System.out.println("1, 2, 3, 4, 5, 6, 7, 8, 9 ou 10:");
             colunaA[i] = (scanner.nextInt() - 1);
             while (colunaA[i] > 9 || colunaA[i] < 0) {
@@ -229,24 +237,4 @@ public class BatalhaNaval extends Navios implements Grelha{
         //}
         player.setGanhou(true);
     }
-
-    /*public char[][] getDimensoes() {
-        return dimensoes;
-    }
-    public int[] getLinhaA() {
-        return linhaA;
-    }
-    public void setLinhaA(int[] NavioPositionLine) {this.linhaA = NavioPositionLine;}
-    public int[] getColunaA(){
-        return colunaA;
-    }
-    public void setColunaA(int[] NavioPositionCol) {this.colunaA = NavioPositionCol;}
-    public void setDimensoes(char[][] dimensoes) {
-        this.dimensoes = dimensoes;
-    }
-    public char[][] dimensoes() {
-        return dimensoes;
-    }*/
-
-
 }
