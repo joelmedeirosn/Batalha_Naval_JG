@@ -3,7 +3,7 @@ package model;
 import java.util.Scanner;
 
 public class Console {
-    public static void InicioModo() throws CoordenadaNavioException {
+    public static void InicioModo() throws CoordenadaNavioException, NomeInvalidoException {
         Scanner scanner = new Scanner(System.in);
         String modoSelecionado;
 
@@ -14,12 +14,13 @@ public class Console {
         modoSelecionado = scanner.nextLine();
         if(modoSelecionado.equals("1")) {
 
+            player1.setPlayerName();
             BatalhaNaval gridP1 = new BatalhaNaval(player1, 4, 3, 2, 1, 1);
             BatalhaNaval gridP2 = new BatalhaNaval(player2, 4, 3, 2, 1, 1);
-            gridP1.formatoNavios(gridP1); // metodo de defesa
-            gridP2.formatoNavios(gridP2); // metodo de defesa
-            gridP1.atacarNavio(gridP2);
-            gridP2.atacarNavio(gridP1);
+           //gridP1.formatoNavios(gridP1); // metodo de defesa
+           //gridP2.formatoNavios(gridP2); // metodo de defesa
+            //gridP1.atacarNavio(gridP2);
+            //gridP2.atacarNavio(gridP1);
 
         }else if(modoSelecionado.equals("2")){
             System.out.println("Digite a Quantidade de Navios de Um Cano: ");
@@ -44,7 +45,7 @@ public class Console {
     }
 
 
-    public static void main(String[] args) throws CoordenadaNavioException {
+    public static void main(String[] args) throws CoordenadaNavioException, NomeInvalidoException {
         InicioModo();
     }
 }

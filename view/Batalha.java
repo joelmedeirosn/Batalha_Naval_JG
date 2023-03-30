@@ -35,7 +35,6 @@ public class Batalha extends JFrame implements ActionListener{
     }
 
     public void configurarGuia(){
-       // setTitle("TABULEIRO");
         setSize(800,800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
