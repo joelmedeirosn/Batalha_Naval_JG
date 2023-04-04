@@ -14,11 +14,12 @@ public class Console {
         modoSelecionado = scanner.nextLine();
         if(modoSelecionado.equals("1")) {
 
-            player1.setPlayerName();
             BatalhaNaval gridP1 = new BatalhaNaval(player1, 4, 3, 2, 1, 1);
             BatalhaNaval gridP2 = new BatalhaNaval(player2, 4, 3, 2, 1, 1);
-           //gridP1.formatoNavios(gridP1); // metodo de defesa
-           //gridP2.formatoNavios(gridP2); // metodo de defesa
+
+
+            //gridP1.formatoNavios(gridP1); // metodo de defesa
+            //gridP2.formatoNavios(gridP2); // metodo de defesa
             //gridP1.atacarNavio(gridP2);
             //gridP2.atacarNavio(gridP1);
 
@@ -37,7 +38,7 @@ public class Console {
             BatalhaNaval gridP2 = new BatalhaNaval(player2,a,b,c,d,e);
             gridP1.formatoNavios(gridP1); // metodo de defesa
             //gridP2.formatoNavios(gridP2); // metodo de defesa
-            gridP1.atacarNavio(gridP2);
+            //gridP1.atacarNavio(gridP2);
             //gridP2.atacarNavio(gridP1);
         } else {
             System.out.println("modo de jogo nao existente.");

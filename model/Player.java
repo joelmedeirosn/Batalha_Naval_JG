@@ -7,34 +7,29 @@ public class Player {
     Player player;
     private String playerName;
     private boolean ganhou;
+
+    private int saberNavio;
+
+    public int getSaberNavio() {
+        return saberNavio;
+    }
+
+    public void setSaberNavio(int saberNavio) {
+        this.saberNavio = saberNavio;
+    }
     private double timer; // tempo que o player demora pra jogar.
     private int quantAtaques; // quantidade de ataques do jogador.
 
     public Player(){
+        saberNavio = 1;
     }
 
-    public void setPlayerName() throws NomeInvalidoException{
-       Scanner scanner = new Scanner(System.in);
-        try{
-            System.out.println("Digite seu nome: ");
-            playerName = scanner.nextLine();
-            if(playerName.length()<=2 || playerName.length()>= 16){
-                throw new NomeInvalidoException();
-            }
-
-
-        } catch(NomeInvalidoException e){
-            do{
-                System.out.println(e.getMessage());
-                playerName = scanner.nextLine();
-            } while (playerName.length()<=2 || playerName.length()>= 16);
-        }
-
+    public void setPlayerName(String x) {
+        // fazer exception
+        this.playerName = x;
     }
 
-   /* public String getPlayerName() {
-        return playerName;
-    }
+   /*
 
     public boolean isGanhou() {
         return ganhou;

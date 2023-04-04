@@ -12,6 +12,7 @@ public class Menu extends JFrame implements ActionListener {
    //JPanel menu = new JPanel();
     private Player player;
 
+
     private JButton jogar = new JButton("JOGAR");
     private JButton recorde = new JButton("RECORDE");
     private JButton sair = new JButton("SAIR");
@@ -24,9 +25,14 @@ public class Menu extends JFrame implements ActionListener {
 
 
     public Menu(){
-        // add(BorderLayout.NORTH,jb); adiciona um botao em uma das margens da janela
+
+        Player player1 = new Player();
+        Player player2 = new Player();
+
+        //add(BorderLayout.NORTH,jb); adiciona um botao em uma das margens da janela
         //add(fundo);
         //menu.setBackground(fundo);
+
         titulo.setFont(fonteLabel);
         titulo.setText("Batalha Naval");
         titulo.setBounds(250,100,800,70);
