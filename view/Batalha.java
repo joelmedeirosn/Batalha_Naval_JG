@@ -13,19 +13,21 @@ public class Batalha extends JFrame implements ActionListener{
 
     Player player1 = new Player();
     Player player2 = new Player();
+    private Player player;
     private JButton[][] botoes;
     private int saberNavio;
-    private JButton botaoAvioes = new JButton("Porta Avioes");
-    private JButton botao1Cano = new JButton("1 Cano");
-    private JButton botao2Canos = new JButton("2 Canos");
-    private JButton botao3Canos = new JButton("3 Canos");
-    private JButton botao4Canos = new JButton("4 Canos");
+    private JRadioButton botaoAvioes = new JRadioButton("Porta Avioes");
+    private JRadioButton botao1Cano = new JRadioButton("1 Cano");
+    private JRadioButton botao2Canos = new JRadioButton("2 Canos");
+    private JRadioButton botao3Canos = new JRadioButton("3 Canos");
+    private JRadioButton botao4Canos = new JRadioButton("4 Canos");
     private JButton girar = new JButton("GIRAR");
     private JButton avancar = new JButton("AVANÇAR");
     private JLabel titulo = new JLabel();
     private Font fonteLabel = new Font("Serif", Font.BOLD,50);
     private JPanel tabuleiro = new JPanel(new GridLayout(10,10));
     private JPanel painel = new JPanel();
+    ButtonGroup group = new ButtonGroup();
 
 
     public Batalha() {
@@ -147,3 +149,4 @@ public class Batalha extends JFrame implements ActionListener{
         }
     }
 }
+

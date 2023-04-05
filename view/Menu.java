@@ -9,22 +9,22 @@ import model.*;
 
 public class Menu extends JFrame implements ActionListener {
     //Color fundo = new Color(253,184,39);
-   //JPanel menu = new JPanel();
+    //JPanel menu = new JPanel();
     private Player player;
-
 
     private JButton jogar = new JButton("JOGAR");
     private JButton recorde = new JButton("RECORDE");
     private JButton sair = new JButton("SAIR");
     private Font fonteBotao = new Font("Courier New",Font.ITALIC | Font.BOLD,15);
     private Font fonteLabel = new Font("Serif", Font.BOLD,50);
-   // ImageIcon imagem = new ImageIcon(getClass().getResource("fundo.jpeg"));
-   // JLabel fundo = new JLabel(imagem);
+    // ImageIcon imagem = new ImageIcon(getClass().getResource("fundo.jpeg"));
+    // JLabel fundo = new JLabel(imagem);
 
     private JLabel titulo = new JLabel();
 
 
     public Menu(){
+        player = new Player();
 
         Player player1 = new Player();
         Player player2 = new Player();
@@ -89,6 +89,10 @@ public class Menu extends JFrame implements ActionListener {
             System.exit(0);
         }
 
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 
     public static void main(String[] args) {
