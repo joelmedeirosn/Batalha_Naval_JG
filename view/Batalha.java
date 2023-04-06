@@ -148,7 +148,8 @@ public class Batalha extends JFrame implements ActionListener{
         } else if (botao4Canos.isSelected()) {
             player.setSaberNavio(4);
         } else if (botaoAvioes.isSelected()) { //troquei getSource por isSelected pra saber se o botao ta selecionado
-            player.setSaberNavio(5); //deveria ser player.setSaberNavio(5) (segundo lucas) mas por enquanto da erro na hora de selecionar o botao e colocar o navio
+            player.setSaberNavio(5); //no momento nao ta printando os navios por conta desse setPlayer e do construtor da classe player mas
+                                    // tem que arranjar algum jeito de funcionar dessa forma ou parecido
         }
     }
 }
