@@ -9,10 +9,10 @@ public class Player {
     private boolean ganhou;
     private double timer; // tempo que o player demora pra jogar.
     private int quantAtaques; // quantidade de ataques do jogador.
-
     private int saberNavio;
-    public Player(){
-        saberNavio = 1;
+
+    public Player(int saberNavio){
+        this.saberNavio = saberNavio;
     }
 
     public int getSaberNavio() {

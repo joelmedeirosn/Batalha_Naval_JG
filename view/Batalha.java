@@ -10,9 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Batalha extends JFrame implements ActionListener{
-
-    Player player1 = new Player();
-    Player player2 = new Player();
+    Player player1 = new Player(0);
+    Player player2 = new Player(0);
     private Player player;
     private JButton[][] botoes;
     private int saberNavio;
@@ -30,11 +29,10 @@ public class Batalha extends JFrame implements ActionListener{
     ButtonGroup group = new ButtonGroup();
 
 
-    public Batalha() {
+    public Batalha(Player player) {
         this.player = player;
         tabuleiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "BATALHA!", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         botoes = new JButton[10][10];
-        saberNavio = 1;
         this.textField();
         this.configurarGuia();
         this.configTabuleiro();
@@ -132,19 +130,25 @@ public class Batalha extends JFrame implements ActionListener{
 
         painel.add(Box.createRigidArea(new Dimension(0,200)));
         painel.add(avancar);
+
+        group.add(botao1Cano);
+        group.add(botao2Canos);
+        group.add(botao3Canos);
+        group.add(botao4Canos);
+        group.add(botaoAvioes);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(botao1Cano.isSelected()){
-            saberNavio = 1;
+            player.setSaberNavio(1);
         } else if (botao2Canos.isSelected()) {
-            saberNavio = 2;
+            player.setSaberNavio(2);
         } else if (botao3Canos.isSelected()) {
-            saberNavio = 3;
+            player.setSaberNavio(3);
         } else if (botao4Canos.isSelected()) {
-            saberNavio = 4;
+            player.setSaberNavio(4);
         } else if (botaoAvioes.isSelected()) { //troquei getSource por isSelected pra saber se o botao ta selecionado
-            saberNavio = 5; //deveria ser player.setSaberNavio(5) (segundo lucas) mas por enquanto da erro na hora de selecionar o botao e colocar o navio
+            player.setSaberNavio(5); //deveria ser player.setSaberNavio(5) (segundo lucas) mas por enquanto da erro na hora de selecionar o botao e colocar o navio
         }
     }
 }

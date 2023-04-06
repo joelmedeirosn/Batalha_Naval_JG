@@ -63,12 +63,12 @@ public class ModoJogo extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()== normal){
-            Batalha batalha = new Batalha();
+            Batalha batalha = new Batalha(player);
             this.dispose();
             batalha.setVisible(true);
         }
         if(e.getSource()== custom){ //tem que diferenciar as funcoes desse botao e do de cima
-            Batalha batalha = new Batalha();
+            Batalha batalha = new Batalha(player);
             this.dispose();
             batalha.setVisible(true);
         }

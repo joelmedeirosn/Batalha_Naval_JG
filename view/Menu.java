@@ -17,10 +17,10 @@ public class Menu extends JFrame implements ActionListener {
     private JLabel titulo = new JLabel();
 
     public Menu(){
-        this.player = new Player(); //ajeitei o instanciamento de player nessa e nas outras classes, ficou parecido com o de lucas
+        this.player = new Player(0); //ajeitei o instanciamento de player nessa e nas outras classes, ficou parecido com o de lucas
 
-        Player player1 = new Player();
-        Player player2 = new Player();
+        Player player1 = new Player(0);
+        Player player2 = new Player(0);
 
         titulo.setFont(fonteLabel);
         titulo.setText("Batalha Naval");
