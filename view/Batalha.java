@@ -31,6 +31,7 @@ public class Batalha extends JFrame implements ActionListener{
 
 
     public Batalha() {
+        this.player = player;
         tabuleiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "BATALHA!", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         botoes = new JButton[10][10];
         saberNavio = 1;
@@ -65,8 +66,6 @@ public class Batalha extends JFrame implements ActionListener{
 
 
     }
-
-
 
     public void configTabuleiro(){
         Movimento movimento = new Movimento(player1,this.botoes);
@@ -136,16 +135,16 @@ public class Batalha extends JFrame implements ActionListener{
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == botao1Cano){
+        if(botao1Cano.isSelected()){
             saberNavio = 1;
-        } else if (e.getSource() == botao2Canos) {
+        } else if (botao2Canos.isSelected()) {
             saberNavio = 2;
-        } else if (e.getSource() == botao3Canos) {
+        } else if (botao3Canos.isSelected()) {
             saberNavio = 3;
-        } else if (e.getSource() == botao4Canos) {
+        } else if (botao4Canos.isSelected()) {
             saberNavio = 4;
-        } else {
-            saberNavio = 5;
+        } else if (botaoAvioes.isSelected()) { //troquei getSource por isSelected pra saber se o botao ta selecionado
+            saberNavio = 5; //deveria ser player.setSaberNavio(5) (segundo lucas) mas por enquanto da erro na hora de selecionar o botao e colocar o navio
         }
     }
 }

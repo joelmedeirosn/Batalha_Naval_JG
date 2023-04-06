@@ -41,7 +41,9 @@ public class Movimento implements ActionListener {
                         botoes[i][j+1].setText("P");
                         botoes[i][j+2].setText("P");
                         botoes[i+1][j+1].setText("P");
-                        botoes[i+2][j+1].setText("P");
+                        botoes[i+2][j+1].setText("P"); //botei os formatos dos navios mas nao
+                                                        //consegui printar no tabuleiro
+                                                        //(nao sei se ja deveria puxar de alguma forma o metodo da classe q faz isso no console)
 
                     }
                 }

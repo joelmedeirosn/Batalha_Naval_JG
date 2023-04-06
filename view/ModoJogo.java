@@ -1,5 +1,7 @@
 package view;
 
+import model.Player;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,8 +14,10 @@ public class ModoJogo extends JFrame implements ActionListener {
     private Font fonteBotao = new Font("Courier New",Font.ITALIC | Font.BOLD,15);
     private JPanel painel = new JPanel();
     private JLabel titulo = new JLabel();
+    private Player player;
 
-    public ModoJogo(){
+    public ModoJogo(Player player){
+        this.player = player;
         painel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ESCOLHA O MODO DE JOGO:", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         this.configurarGuia();

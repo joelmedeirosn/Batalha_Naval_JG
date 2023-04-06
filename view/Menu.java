@@ -8,36 +8,24 @@ import java.awt.event.ActionListener;
 import model.*;
 
 public class Menu extends JFrame implements ActionListener {
-    //Color fundo = new Color(253,184,39);
-    //JPanel menu = new JPanel();
     private Player player;
-
     private JButton jogar = new JButton("JOGAR");
     private JButton recorde = new JButton("RECORDE");
     private JButton sair = new JButton("SAIR");
     private Font fonteBotao = new Font("Courier New",Font.ITALIC | Font.BOLD,15);
     private Font fonteLabel = new Font("Serif", Font.BOLD,50);
-    // ImageIcon imagem = new ImageIcon(getClass().getResource("fundo.jpeg"));
-    // JLabel fundo = new JLabel(imagem);
-
     private JLabel titulo = new JLabel();
 
-
     public Menu(){
-        player = new Player();
+        this.player = new Player(); //ajeitei o instanciamento de player nessa e nas outras classes, ficou parecido com o de lucas
 
         Player player1 = new Player();
         Player player2 = new Player();
-
-        //add(BorderLayout.NORTH,jb); adiciona um botao em uma das margens da janela
-        //add(fundo);
-        //menu.setBackground(fundo);
 
         titulo.setFont(fonteLabel);
         titulo.setText("Batalha Naval");
         titulo.setBounds(250,100,800,70);
         add(titulo);
-
         this.botoes();
         this.configurarGuia();
     }
@@ -81,7 +69,7 @@ public class Menu extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) { //metodo do action listener que da a função dos botões
         if(e.getSource()== jogar){
-            ModoJogo nomeJogadores = new ModoJogo();
+            ModoJogo nomeJogadores = new ModoJogo(player);
             this.dispose();
             nomeJogadores.setVisible(true);
         }
