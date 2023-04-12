@@ -11,8 +11,8 @@ public class Player {
     private int quantAtaques; // quantidade de ataques do jogador.
     private int saberNavio;
 
-    public Player(int saberNavio){
-        this.saberNavio = saberNavio;
+    public Player(){
+        this.setSaberNavio(0);
     }
 
     public int getSaberNavio() {

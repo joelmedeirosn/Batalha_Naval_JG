@@ -1,16 +1,14 @@
 package controller;
 
-import model.BatalhaNaval;
-import model.Player;
+import model.*;
 import view.*;
-
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Movimento implements ActionListener {
-
+    private Batalha batalha;
     private Player player;
     private JButton[][] botoes;
     public Movimento(Player player, JButton[][] botoes) {
@@ -19,6 +17,8 @@ public class Movimento implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e){
+       // BatalhaNaval batalhaNaval = new BatalhaNaval(player, );
+
         for(int i = 0; i<this.botoes.length;i++){
             for(int j = 0;j<this.botoes[i].length;j++){
                 if (e.getSource() == botoes[i][j]){
@@ -41,11 +41,12 @@ public class Movimento implements ActionListener {
                         botoes[i][j+1].setText("P");
                         botoes[i][j+2].setText("P");
                         botoes[i+1][j+1].setText("P");
-                        botoes[i+2][j+1].setText("P"); //botei os formatos dos navios mas nao
-                                                        //consegui printar no tabuleiro
+                        botoes[i+2][j+1].setText("P");
                                                         //(nao sei se ja deveria puxar de alguma forma o metodo da classe q faz isso no console)
 
                     }
+
+
                 }
             }
         }

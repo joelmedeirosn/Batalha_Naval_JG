@@ -10,8 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Batalha extends JFrame implements ActionListener{
-    Player player1 = new Player(0);
-    Player player2 = new Player(0);
+    Player player1 = new Player();
+    Player player2 = new Player();
     private Player player;
     private JButton[][] botoes;
     private int saberNavio;
@@ -66,7 +66,7 @@ public class Batalha extends JFrame implements ActionListener{
     }
 
     public void configTabuleiro(){
-        Movimento movimento = new Movimento(player1,this.botoes);
+        Movimento movimento = new Movimento(player,this.botoes);
 
         for(int i = 0; i<this.botoes.length;i++){
             for(int j = 0;j<this.botoes[i].length;j++){
@@ -141,15 +141,19 @@ public class Batalha extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(botao1Cano.isSelected()){
             player.setSaberNavio(1);
+            repaint();
         } else if (botao2Canos.isSelected()) {
             player.setSaberNavio(2);
+            repaint();
         } else if (botao3Canos.isSelected()) {
             player.setSaberNavio(3);
+            repaint();
         } else if (botao4Canos.isSelected()) {
             player.setSaberNavio(4);
-        } else if (botaoAvioes.isSelected()) { //troquei getSource por isSelected pra saber se o botao ta selecionado
-            player.setSaberNavio(5); //no momento nao ta printando os navios por conta desse setPlayer e do construtor da classe player mas
-                                    // tem que arranjar algum jeito de funcionar dessa forma ou parecido
+            repaint();
+        } else if (botaoAvioes.isSelected()) {
+            player.setSaberNavio(5);
+            repaint();
         }
     }
 }
