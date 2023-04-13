@@ -8,12 +8,6 @@ public abstract class Navios{
     private int quant3Canos; //2
     private int quant2Canos; //1
     private int quant1Cano; //1
-    private char[][] dimensoes;
-    private int[] linhaA = new int [3];
-    private int[] linhaD = new int [10];
-    private int[] colunaA = new int [3];
-    private int[] colunaD = new int [10];
-
 
 
     public Navios(int quant1Cano, int quant2Canos, int quant3Canos, int quant4Canos, int quantAvioes){

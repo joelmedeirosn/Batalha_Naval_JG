@@ -3,23 +3,38 @@ package model;
 import java.util.Scanner;
 import java.lang.*;
 
-public class BatalhaNaval extends Navios implements Grelha{
+public class Tabuleiro extends Navios implements Grelha{
     Player player;
+
     private char[][] dimensoes = new char[10][10];
+    public char[][] getDimensoes() {
+        return dimensoes;
+    }
+
+    public void setDimensoes(int linha,int coluna,char valor) {
+        this.dimensoes[linha][coluna] = valor;
+    }
     private int[] linhaA = new int [3];
     private int[] linhaD = new int [10];
     private int[] colunaA = new int [3];
     private int[] colunaD = new int [10];
 
+    public void grelha(){
+        for(int i=0;i<dimensoes.length; i++) {
+            for (int j = 0; j < dimensoes.length; j++) {
+                dimensoes[i][j] = ' '; //'□';
+            }
+        }
+    }
 
-    public BatalhaNaval(Player player, int quant1Cano, int quant2Canos, int quant3Canos, int quant4Canos, int quantAvioes) {
+    public Tabuleiro(Player player, int quant1Cano, int quant2Canos, int quant3Canos, int quant4Canos, int quantAvioes) {
         super(quant1Cano,quant2Canos,quant3Canos,quant4Canos,quantAvioes);
         this.player = player;
         grelha();
     }
 
-    public void grelha(){
-        for(int i=0;i<dimensoes.length; i++) {
+    public void grelha(Tabuleiro x){
+        for(int i=0;i<x.dimensoes.length; i++) {
             for (int j = 0; j < dimensoes.length; j++) {
                 dimensoes[i][j] = '□';
             }
@@ -196,7 +211,7 @@ public class BatalhaNaval extends Navios implements Grelha{
         }
     }
 
-    public void formatoNavios(BatalhaNaval x) throws CoordenadaNavioException{ //falta implementar cada tipo de navio no tabuleiro e a exception
+    public void formatoNavios(Tabuleiro x) throws CoordenadaNavioException{ //falta implementar cada tipo de navio no tabuleiro e a exception
         try {
 
             coordenada1Cano();
@@ -212,6 +227,7 @@ public class BatalhaNaval extends Navios implements Grelha{
             for(int i = 0; i < (getQuant1Cano()); i++) {
                 // n esquecer -> x.dimensoes.length
                 x.dimensoes[linhaD[i]][colunaD[i]] = navio();
+
             }
 
             for(int i = (getQuant1Cano()); i < (getQuant2Canos() + getQuant1Cano()); i++) {
@@ -263,7 +279,7 @@ public class BatalhaNaval extends Navios implements Grelha{
         }
     }
 
-    public void atacarNavio(BatalhaNaval x){
+    public void atacarNavio(Tabuleiro x){
 
         Scanner scanner = new Scanner(System.in);
         //while(getQuant1Cano()!=0 || getQuant2Canos()!=0 || getQuant3Canos()!=0 || getQuant4Canos()!=0 || getQuantAvioes()!=0){

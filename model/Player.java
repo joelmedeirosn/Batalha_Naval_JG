@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class Player {
     Player player;
+
+
     private String playerName;
     private boolean ganhou;
     private double timer; // tempo que o player demora pra jogar.
