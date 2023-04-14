@@ -28,25 +28,13 @@ public class Batalha extends JFrame implements ActionListener{
     private JPanel painel = new JPanel();
     ButtonGroup group = new ButtonGroup();
 
-
     public Batalha(Player player) {
         this.player = player;
         tabuleiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "BATALHA!", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         botoes = new JButton[10][10];
-        this.textField();
         this.configurarGuia();
         this.configTabuleiro();
         this.botoes();
-
-    }
-
-    public void textField() {
-        setLayout(new GridLayout());
-        //String nome1 = JOptionPane.showInputDialog("Digite seu nome, jogador 1");
-        //String nome2 = JOptionPane.showInputDialog("Digite seu nome, jogador 2");
-
-        //player1.setPlayerName(nome1);
-        //player2.setPlayerName(nome2);
 
     }
 
@@ -61,8 +49,6 @@ public class Batalha extends JFrame implements ActionListener{
         painel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SELECIONE OS NAVIOS:", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         painel.setBounds(500,0,285,750);
         add(painel);
-
-
     }
 
     public void configTabuleiro(){
@@ -75,7 +61,6 @@ public class Batalha extends JFrame implements ActionListener{
                 this.tabuleiro.add(this.botoes[i][j]);
             }
         }
-
         add(this.tabuleiro);
     }
 
@@ -116,7 +101,6 @@ public class Batalha extends JFrame implements ActionListener{
         painel.add(Box.createRigidArea(new Dimension(0,200)));
         painel.add(botaoAvioes);
 
-
         girar.setAlignmentX(Component.CENTER_ALIGNMENT);
         girar.setMaximumSize(new Dimension(150,80));
         girar.addActionListener(this);
@@ -139,6 +123,7 @@ public class Batalha extends JFrame implements ActionListener{
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+
         if(botao1Cano.isSelected()){
             player.setSaberNavio(1);
             repaint();
@@ -154,6 +139,10 @@ public class Batalha extends JFrame implements ActionListener{
         } else if (botaoAvioes.isSelected()) {
             player.setSaberNavio(5);
             repaint();
+        }
+
+        if(e.getSource() == avancar){
+
         }
     }
 }

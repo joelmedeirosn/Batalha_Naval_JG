@@ -26,7 +26,6 @@ public class ModoJogo extends JFrame implements ActionListener {
 
     }
 
-
     public void botoes(){
         normal.setAlignmentX(CENTER_ALIGNMENT);
         normal.setMaximumSize(new Dimension(200,80));
