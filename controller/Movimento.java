@@ -35,7 +35,7 @@ public class Movimento implements ActionListener {
                         }
                         contador1++;
 
-                    } else if (player.getSaberNavio() == 2 && contador2<navios.getQuant2Canos() && this.botoes[i][j].getText().isEmpty()) {
+                    } else if (player.getSaberNavio() == 2 && contador2<navios.getQuant2Canos() && this.botoes[i][j].getText().isEmpty() && this.botoes[i][j+1].getText().isEmpty()) {
                         botoes[i][j].setText("N");
                         botoes[i][j+1].setText("N");
                         if (this.batalha != null)
@@ -45,7 +45,8 @@ public class Movimento implements ActionListener {
                         }
                         contador2++;
 
-                    } else if (player.getSaberNavio() == 3 && contador3<navios.getQuant3Canos() && this.botoes[i][j].getText().isEmpty()){
+                    } else if (player.getSaberNavio() == 3 && contador3<navios.getQuant3Canos() && this.botoes[i][j].getText().isEmpty()
+                            && this.botoes[i][j+1].getText().isEmpty() && this.botoes[i][j+2].getText().isEmpty()){
                         botoes[i][j].setText("N");
                         botoes[i][j+1].setText("N");
                         botoes[i][j+2].setText("N");
@@ -57,7 +58,8 @@ public class Movimento implements ActionListener {
                         }
                         contador3++;
 
-                    } else if (player.getSaberNavio() == 4 && contador4<navios.getQuant4Canos() && this.botoes[i][j].getText().isEmpty()){
+                    } else if (player.getSaberNavio() == 4 && contador4<navios.getQuant4Canos() && this.botoes[i][j].getText().isEmpty() && this.botoes[i][j+1].getText().isEmpty()
+                            && this.botoes[i][j+2].getText().isEmpty() && this.botoes[i][j+3].getText().isEmpty()){
                         botoes[i][j].setText("N");
                         botoes[i][j+1].setText("N");
                         botoes[i][j+2].setText("N");
@@ -70,7 +72,8 @@ public class Movimento implements ActionListener {
                         }
                         contador4++;
 
-                    } else if (player.getSaberNavio() == 5 && contador5<navios.getQuantAvioes() && this.botoes[i][j].getText().isEmpty()){
+                    } else if (player.getSaberNavio() == 5 && contador5<navios.getQuantAvioes() && this.botoes[i][j].getText().isEmpty() && this.botoes[i][j+1].getText().isEmpty()
+                            && this.botoes[i][j+2].getText().isEmpty() && this.botoes[i+1][j+1].getText().isEmpty() && this.botoes[i+2][j+1].getText().isEmpty()){
                         botoes[i][j].setText("P");
                         botoes[i][j+1].setText("P");
                         botoes[i][j+2].setText("P");
