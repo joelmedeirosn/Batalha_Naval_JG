@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 public class Movimento implements ActionListener {
 
-    private Tabuleiro batalha;
+    private Tabuleiro tabuleiro;
     Navios navios = new Navios(4,3,2,1,1);
     private int contador1, contador2, contador3, contador4, contador5;
     private Player player;
@@ -29,19 +29,19 @@ public class Movimento implements ActionListener {
 
                     if (player.getSaberNavio() == 1 && contador1<navios.getQuant1Cano() && this.botoes[i][j].getText().isEmpty()){
                         botoes[i][j].setText("N");
-                        if (this.batalha != null)
+                        if (this.tabuleiro != null)
                         {
-                            batalha.setDimensoes(i,j,'N');
+                            tabuleiro.setDimensoes(i,j,'N');
                         }
                         contador1++;
 
                     } else if (player.getSaberNavio() == 2 && contador2<navios.getQuant2Canos() && this.botoes[i][j].getText().isEmpty() && this.botoes[i][j+1].getText().isEmpty()) {
                         botoes[i][j].setText("N");
                         botoes[i][j+1].setText("N");
-                        if (this.batalha != null)
+                        if (this.tabuleiro != null)
                         {
-                            batalha.setDimensoes(i,j,'N');
-                            batalha.setDimensoes(i,(j+1),'N');
+                            tabuleiro.setDimensoes(i,j,'N');
+                            tabuleiro.setDimensoes(i,(j+1),'N');
                         }
                         contador2++;
 
@@ -50,11 +50,11 @@ public class Movimento implements ActionListener {
                         botoes[i][j].setText("N");
                         botoes[i][j+1].setText("N");
                         botoes[i][j+2].setText("N");
-                        if (this.batalha != null)
+                        if (this.tabuleiro != null)
                         {
-                            batalha.setDimensoes(i,j,'N');
-                            batalha.setDimensoes(i,(j+1),'N');
-                            batalha.setDimensoes(i,(j+2),'N');
+                            tabuleiro.setDimensoes(i,j,'N');
+                            tabuleiro.setDimensoes(i,(j+1),'N');
+                            tabuleiro.setDimensoes(i,(j+2),'N');
                         }
                         contador3++;
 
@@ -64,11 +64,11 @@ public class Movimento implements ActionListener {
                         botoes[i][j+1].setText("N");
                         botoes[i][j+2].setText("N");
                         botoes[i][j+3].setText("N");
-                        if (this.batalha != null) {
-                            batalha.setDimensoes(i, j, 'N');
-                            batalha.setDimensoes(i, (j + 1), 'N');
-                            batalha.setDimensoes(i, (j + 2), 'N');
-                            batalha.setDimensoes(i, (j + 3), 'N');
+                        if (this.tabuleiro != null) {
+                            tabuleiro.setDimensoes(i, j, 'N');
+                            tabuleiro.setDimensoes(i, (j + 1), 'N');
+                            tabuleiro.setDimensoes(i, (j + 2), 'N');
+                            tabuleiro.setDimensoes(i, (j + 3), 'N');
                         }
                         contador4++;
 
@@ -79,12 +79,12 @@ public class Movimento implements ActionListener {
                         botoes[i][j+2].setText("P");
                         botoes[i+1][j+1].setText("P");
                         botoes[i+2][j+1].setText("P");
-                        if (this.batalha != null) {
-                            batalha.setDimensoes(i, j, 'N');
-                            batalha.setDimensoes(i, (j + 1), 'N');
-                            batalha.setDimensoes(i, (j + 2), 'N');
-                            batalha.setDimensoes(i+1, (j + 1), 'N');
-                            batalha.setDimensoes(i+2, (j + 1), 'N');
+                        if (this.tabuleiro != null) {
+                            tabuleiro.setDimensoes(i, j, 'N');
+                            tabuleiro.setDimensoes(i, (j + 1), 'N');
+                            tabuleiro.setDimensoes(i, (j + 2), 'N');
+                            tabuleiro.setDimensoes(i+1, (j + 1), 'N');
+                            tabuleiro.setDimensoes(i+2, (j + 1), 'N');
                         }
                         contador5++;
                     }
