@@ -13,7 +13,8 @@ public class Player {
     private int quantAtaques; // quantidade de ataques do jogador.
     private int saberNavio;
 
-    public Player(){
+    public Player(String playerName){
+        this.playerName = playerName;
         this.setSaberNavio(0);
     }
 
@@ -25,9 +26,14 @@ public class Player {
         this.saberNavio = saberNavio;
     }
 
-    public void setPlayerName(String x) {
-        // fazer exception
-        this.playerName = x;
+    public void setPlayerName(String playerName) throws  NomeInvalidoException{
+        if(playerName==null){
+            this.playerName=null;
+        } else if(playerName.replaceAll("\\s", "").length()<=14 && playerName.replaceAll("\\s", "").length()>=3){
+            this.playerName = playerName.replaceAll("\\s", "");
+        } else{
+            throw new NomeInvalidoException();
+        }
     }
 
     public void setGanhou(boolean ganhou) {

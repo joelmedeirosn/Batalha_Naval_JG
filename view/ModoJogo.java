@@ -1,5 +1,6 @@
 package view;
 
+import model.NomeInvalidoException;
 import model.Player;
 
 import javax.swing.*;
@@ -62,6 +63,17 @@ public class ModoJogo extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        if(e.getSource()==normal || e.getSource()==custom){
+            try{
+               this.player.setPlayerName(JOptionPane.showInputDialog("Qual o seu nome, capitão?"));
+           } catch (NomeInvalidoException x){
+               JOptionPane.showMessageDialog(null, x.getMessage(), "Usuário incorreto", JOptionPane.WARNING_MESSAGE);
+               actionPerformed(e);
+           }
+       }
+
+
         if(e.getSource()== normal){
             Batalha batalha = new Batalha(player);
             this.dispose();

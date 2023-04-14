@@ -10,8 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Batalha extends JFrame implements ActionListener{
-    Player player1 = new Player();
-    Player player2 = new Player();
+    //Player player1 = new Player();
+    //Player player2 = new Player();
     private Player player;
     private JButton[][] botoes;
     private int saberNavio;
@@ -42,11 +42,11 @@ public class Batalha extends JFrame implements ActionListener{
 
     public void textField() {
         setLayout(new GridLayout());
-        String nome1 = JOptionPane.showInputDialog("Digite seu nome, jogador 1");
-        String nome2 = JOptionPane.showInputDialog("Digite seu nome, jogador 2");
+        //String nome1 = JOptionPane.showInputDialog("Digite seu nome, jogador 1");
+        //String nome2 = JOptionPane.showInputDialog("Digite seu nome, jogador 2");
 
-        player1.setPlayerName(nome1);
-        player2.setPlayerName(nome2);
+        //player1.setPlayerName(nome1);
+        //player2.setPlayerName(nome2);
 
     }
 
