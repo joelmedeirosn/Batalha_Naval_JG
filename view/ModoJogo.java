@@ -74,12 +74,12 @@ public class ModoJogo extends JFrame implements ActionListener {
        }
 
 
-        if(e.getSource()== normal){
+        if(e.getSource()== normal && this.player.getPlayerName() != null){
             Batalha batalha = new Batalha(player);
             this.dispose();
             batalha.setVisible(true);
         }
-        if(e.getSource()== custom){ //tem que diferenciar as funcoes desse botao e do de cima
+        if(e.getSource()== custom && this.player.getPlayerName() != null){ //tem que diferenciar as funcoes desse botao e do de cima
             Batalha batalha = new Batalha(player);
             this.dispose();
             batalha.setVisible(true);

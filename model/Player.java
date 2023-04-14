@@ -26,10 +26,14 @@ public class Player {
         this.saberNavio = saberNavio;
     }
 
+    public String getPlayerName() {
+        return playerName;
+    }
+
     public void setPlayerName(String playerName) throws  NomeInvalidoException{
         if(playerName==null){
             this.playerName=null;
-        } else if(playerName.replaceAll("\\s", "").length()<=14 && playerName.replaceAll("\\s", "").length()>=3){
+        } else if(playerName.replaceAll("\\s", "").length()<=15 && playerName.replaceAll("\\s", "").length()>=3){
             this.playerName = playerName.replaceAll("\\s", "");
         } else{
             throw new NomeInvalidoException();
