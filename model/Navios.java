@@ -2,7 +2,7 @@ package model;
 
 import java.util.Scanner;
 
-public abstract class Navios{
+public class Navios{
     private int quantAvioes; //4
     private int quant4Canos; //3
     private int quant3Canos; //2

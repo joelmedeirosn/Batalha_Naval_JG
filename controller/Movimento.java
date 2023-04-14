@@ -1,7 +1,7 @@
 package controller;
 
-import model.Tabuleiro;
-import model.Player;
+import model.*;
+
 
 
 import javax.swing.*;
@@ -11,6 +11,13 @@ import java.awt.event.ActionListener;
 public class Movimento implements ActionListener {
 
     private Tabuleiro batalha;
+    Navios navios = new Navios(4,3,2,1,1);
+    private int contador1;
+    private int contador2;
+    private int contador3;
+    private int contador4;
+    private int contador5;
+
     private Player player;
     private JButton[][] botoes;
     public Movimento(Player player, JButton[][] botoes) {
@@ -23,14 +30,16 @@ public class Movimento implements ActionListener {
         for(int i = 0; i<this.botoes.length;i++){
             for(int j = 0;j<this.botoes[i].length;j++){
                 if (e.getSource() == botoes[i][j]){
-                    if (player.getSaberNavio() == 1){
+
+
+                    if (player.getSaberNavio() == 1 && contador1<navios.getQuant1Cano()){
                         botoes[i][j].setText("N");
                         if (this.batalha != null)
                         {
                             batalha.setDimensoes(i,j,'N');
                         }
-                    } else if (player.getSaberNavio() == 2)
-                    {
+                        contador1++;
+                    } else if (player.getSaberNavio() == 2 && contador2<navios.getQuant2Canos()) {
                         botoes[i][j].setText("N");
                         botoes[i][j+1].setText("N");
                         if (this.batalha != null)
@@ -38,7 +47,8 @@ public class Movimento implements ActionListener {
                             batalha.setDimensoes(i,j,'N');
                             batalha.setDimensoes(i,(j+1),'N');
                         }
-                    } else if (player.getSaberNavio() == 3){
+                        contador2++;
+                    } else if (player.getSaberNavio() == 3 && contador3<navios.getQuant3Canos()){
                         botoes[i][j].setText("N");
                         botoes[i][j+1].setText("N");
                         botoes[i][j+2].setText("N");
@@ -48,7 +58,8 @@ public class Movimento implements ActionListener {
                             batalha.setDimensoes(i,(j+1),'N');
                             batalha.setDimensoes(i,(j+2),'N');
                         }
-                    } else if (player.getSaberNavio() == 4){
+                        contador3++;
+                    } else if (player.getSaberNavio() == 4 && contador4 < navios.getQuant4Canos()){
                         botoes[i][j].setText("N");
                         botoes[i][j+1].setText("N");
                         botoes[i][j+2].setText("N");
@@ -59,7 +70,8 @@ public class Movimento implements ActionListener {
                             batalha.setDimensoes(i, (j + 2), 'N');
                             batalha.setDimensoes(i, (j + 3), 'N');
                         }
-                    } else if (player.getSaberNavio() == 5){
+                        contador4++;
+                    } else if (player.getSaberNavio() == 5 && contador5 < navios.getQuantAvioes()){
                         botoes[i][j].setText("P");
                         botoes[i][j+1].setText("P");
                         botoes[i][j+2].setText("P");
@@ -72,6 +84,7 @@ public class Movimento implements ActionListener {
                             batalha.setDimensoes(i+1, (j + 1), 'N');
                             batalha.setDimensoes(i+2, (j + 1), 'N');
                         }
+                        contador5++;
                     }
                 }
 
