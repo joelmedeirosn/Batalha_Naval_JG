@@ -1,7 +1,6 @@
 package view;
 
 import controller.Movimento;
-import model.NomeInvalidoException;
 import model.Player;
 
 import javax.swing.*;
@@ -9,10 +8,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Batalha extends JFrame implements ActionListener{
-    //Player player1 = new Player();
-    //Player player2 = new Player();
-    private Player player;
+public class Defesa extends JFrame implements ActionListener{
+
+    private Jogadores jogadores;
     private JButton[][] botoes;
     private int saberNavio;
     private JRadioButton botaoAvioes = new JRadioButton("Porta Avioes");
@@ -27,11 +25,13 @@ public class Batalha extends JFrame implements ActionListener{
     private JPanel tabuleiro = new JPanel(new GridLayout(10,10));
     private JPanel painel = new JPanel();
     ButtonGroup group = new ButtonGroup();
+    private Movimento movimento;
 
-    public Batalha(Player player) {
-        this.player = player;
+    public Defesa(Jogadores jogadores) {
+        this.jogadores = new Jogadores();
         tabuleiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "BATALHA!", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         botoes = new JButton[10][10];
+        this.movimento = new Movimento(botoes);
         this.configurarGuia();
         this.configTabuleiro();
         this.botoes();
@@ -52,7 +52,7 @@ public class Batalha extends JFrame implements ActionListener{
     }
 
     public void configTabuleiro(){
-        Movimento movimento = new Movimento(player,this.botoes);
+        Movimento movimento = new Movimento(this.botoes);
 
         for(int i = 0; i<this.botoes.length;i++){
             for(int j = 0;j<this.botoes[i].length;j++){
@@ -125,25 +125,31 @@ public class Batalha extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
 
         if(botao1Cano.isSelected()){
-            player.setSaberNavio(1);
+            jogadores.playerAtual.setSaberNavio(1);
             repaint();
         } else if (botao2Canos.isSelected()) {
-            player.setSaberNavio(2);
+            jogadores.playerAtual.setSaberNavio(2);
             repaint();
         } else if (botao3Canos.isSelected()) {
-            player.setSaberNavio(3);
+            jogadores.playerAtual.setSaberNavio(3);
             repaint();
         } else if (botao4Canos.isSelected()) {
-            player.setSaberNavio(4);
+            jogadores.playerAtual.setSaberNavio(4);
             repaint();
         } else if (botaoAvioes.isSelected()) {
-            player.setSaberNavio(5);
+            jogadores.playerAtual.setSaberNavio(5);
             repaint();
         }
 
         if(e.getSource() == avancar){
-
+            if(this.jogadores.getPlayerAtual() == jogadores.player1){
+                jogadores.setPlayerAtual(jogadores.player2);
+                Defesa defesa = new Defesa(jogadores);
+                jogadores.playerAtual = jogadores.player2;
+                defesa.setVisible(true);
+                this.dispose();
+            }
         }
+
     }
 }
-

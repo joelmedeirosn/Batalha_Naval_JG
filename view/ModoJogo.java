@@ -3,27 +3,30 @@ package view;
 import model.NomeInvalidoException;
 import model.Player;
 
+import javax.management.openmbean.OpenMBeanInfoSupport;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ModoJogo extends JFrame implements ActionListener {
+
+    private Jogadores jogo;
     private JButton normal = new JButton("NORMAL");
     private JButton custom = new JButton("CUSTOM");
     private JButton voltar = new JButton("VOLTAR");
     private Font fonteBotao = new Font("Courier New",Font.ITALIC | Font.BOLD,15);
     private JPanel painel = new JPanel();
     private JLabel titulo = new JLabel();
-    private Player player;
 
-    public ModoJogo(Player player){
-        this.player = player;
+    //private Batalha batalha = new Batalha(player1,player2);
+
+    public ModoJogo(Player player1, Player player2){
+        this.jogo = new Jogadores();
+
         painel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ESCOLHA O MODO DE JOGO:", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
-
         this.configurarGuia();
         botoes();
-
     }
 
     public void botoes(){
@@ -52,6 +55,7 @@ public class ModoJogo extends JFrame implements ActionListener {
 
     }
 
+
     public void configurarGuia(){
         setSize(800,800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -65,23 +69,31 @@ public class ModoJogo extends JFrame implements ActionListener {
 
         if(e.getSource()==normal || e.getSource()==custom){
             try{
-               this.player.setPlayerName(JOptionPane.showInputDialog("Qual o seu nome, capitão?"));
-           } catch (NomeInvalidoException x){
-               JOptionPane.showMessageDialog(null, x.getMessage(), "Usuário incorreto", JOptionPane.WARNING_MESSAGE);
-               actionPerformed(e);
-           }
-       }
+                this.jogo.player1.setPlayerName(JOptionPane.showInputDialog("Qual o seu nome, capitão?"));
+            } catch (NomeInvalidoException x){
+                JOptionPane.showMessageDialog(null, x.getMessage(), "Usuário incorreto", JOptionPane.WARNING_MESSAGE);
+                actionPerformed(e);
+            }
 
-
-        if(e.getSource()== normal && this.player.getPlayerName() != null){
-            Batalha batalha = new Batalha(player);
-            this.dispose();
-            batalha.setVisible(true);
+            try{
+                this.jogo.player2.setPlayerName(JOptionPane.showInputDialog("Qual o seu nome, capitão?"));
+            } catch (NomeInvalidoException x){
+                JOptionPane.showMessageDialog(null, x.getMessage(), "Usuário incorreto", JOptionPane.WARNING_MESSAGE);
+                actionPerformed(e);
+            }
         }
-        if(e.getSource()== custom && this.player.getPlayerName() != null){ //tem que diferenciar as funcoes desse botao e do de cima
-            Batalha batalha = new Batalha(player);
+
+
+        if(e.getSource() == normal && this.jogo.player1.getPlayerName() != null && this.jogo.player2.getPlayerName() != null){
+            Defesa defesa = new Defesa(jogo);
+            defesa.setVisible(true);
             this.dispose();
-            batalha.setVisible(true);
+        }
+
+        if(e.getSource()== custom && this.jogo.player1.getPlayerName() != null && this.jogo.player2.getPlayerName() != null){ //tem que diferenciar as funcoes desse botao e do de cima
+            Defesa defesa = new Defesa(jogo);
+            defesa.setVisible(true);
+            this.dispose();
         }
 
         if(e.getSource()== voltar){

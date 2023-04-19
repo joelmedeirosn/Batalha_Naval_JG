@@ -8,7 +8,12 @@ import java.awt.event.ActionListener;
 import model.*;
 
 public class Menu extends JFrame implements ActionListener {
-    private Player player;
+    private Player player1;
+    private Player player2;
+    private Tabuleiro tabuleiroP1;
+
+    private Tabuleiro tabuleiroP2;
+
     private JButton jogar = new JButton("JOGAR");
     private JButton recorde = new JButton("RECORDE");
     private JButton sair = new JButton("SAIR");
@@ -17,8 +22,8 @@ public class Menu extends JFrame implements ActionListener {
     private JLabel titulo = new JLabel();
 
     public Menu(){
-        this.player = new Player(null); //ajeitei o instanciamento de player nessa e nas outras classes, ficou parecido com o de lucas
-
+        this.player1 = new Player(null,tabuleiroP1); //ajeitei o instanciamento de player nessa e nas outras classes, ficou parecido com o de lucas
+        this.player2 = new Player(null,tabuleiroP2);
         //Player player1 = new Player();
         //Player player2 = new Player();
 
@@ -68,19 +73,15 @@ public class Menu extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) { //metodo do action listener que da a função dos botões
-        if(e.getSource()== jogar){
-            ModoJogo nomeJogadores = new ModoJogo(player);
+        if(e.getSource() == jogar){
+            ModoJogo nomeJogadores = new ModoJogo(player1,player2);
             this.dispose();
             nomeJogadores.setVisible(true);
         }
-        if(e.getSource()== sair){
+        if(e.getSource() == sair){
             System.exit(0);
         }
 
-    }
-
-    public Player getPlayer() {
-        return player;
     }
 
     public static void main(String[] args) {

@@ -4,8 +4,17 @@ import java.nio.file.LinkPermission;
 import java.util.Scanner;
 
 public class Player {
-    Player player;
+    private Player player;
 
+
+    private Tabuleiro tabuleiro;
+    public Tabuleiro getTabuleiro() {
+        return tabuleiro;
+    }
+
+    public void setTabuleiro(Tabuleiro tabuleiro) {
+        this.tabuleiro = tabuleiro;
+    }
 
     private String playerName;
     private boolean ganhou;
@@ -13,7 +22,8 @@ public class Player {
     private int quantAtaques; // quantidade de ataques do jogador.
     private int saberNavio;
 
-    public Player(String playerName){
+    public Player(String playerName, Tabuleiro tabuleiro){
+        this.tabuleiro = tabuleiro;
         this.playerName = playerName;
         this.setSaberNavio(0);
     }

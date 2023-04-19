@@ -4,8 +4,7 @@ import java.util.Scanner;
 import java.lang.*;
 
 public class Tabuleiro extends Navios implements Grelha{
-    Player player;
-
+    //Player player;
     private char[][] dimensoes = new char[10][10];
     public char[][] getDimensoes() {
         return dimensoes;
@@ -22,14 +21,13 @@ public class Tabuleiro extends Navios implements Grelha{
     public void grelha(){
         for(int i=0;i<dimensoes.length; i++) {
             for (int j = 0; j < dimensoes.length; j++) {
-                dimensoes[i][j] = ' '; //'□';
+                dimensoes[i][j] = '□'; //'□';
             }
         }
     }
 
-    public Tabuleiro(Player player, int quant1Cano, int quant2Canos, int quant3Canos, int quant4Canos, int quantAvioes) {
+    public Tabuleiro(int quant1Cano, int quant2Canos, int quant3Canos, int quant4Canos, int quantAvioes) {
         super(quant1Cano,quant2Canos,quant3Canos,quant4Canos,quantAvioes);
-        this.player = player;
         grelha();
     }
 
@@ -314,7 +312,6 @@ public class Tabuleiro extends Navios implements Grelha{
             }
             System.out.println();
         }
-        //}
-        player.setGanhou(true);
+        //player.setGanhou(true);
     }
 }
