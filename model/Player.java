@@ -4,37 +4,14 @@ import java.nio.file.LinkPermission;
 import java.util.Scanner;
 
 public class Player {
-    private Player player;
-
-
-    private Tabuleiro tabuleiro;
-    public Tabuleiro getTabuleiro() {
-        return tabuleiro;
-    }
-
-    public void setTabuleiro(Tabuleiro tabuleiro) {
-        this.tabuleiro = tabuleiro;
-    }
-
     private String playerName;
-    private boolean ganhou;
-    private double timer; // tempo que o player demora pra jogar.
-    private int quantAtaques; // quantidade de ataques do jogador.
-    private int saberNavio;
+    private boolean ganhou = false;
 
-    public Player(String playerName, Tabuleiro tabuleiro){
-        this.tabuleiro = tabuleiro;
-        this.playerName = playerName;
-        this.setSaberNavio(0);
+
+
+    public Player(){
     }
 
-    public int getSaberNavio() {
-        return saberNavio;
-    }
-
-    public void setSaberNavio(int saberNavio) {
-        this.saberNavio = saberNavio;
-    }
 
     public String getPlayerName() {
         return playerName;

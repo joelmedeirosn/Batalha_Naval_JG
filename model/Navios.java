@@ -8,25 +8,25 @@ public class Navios{
     private int quant3Canos; //2
     private int quant2Canos; //1
     private int quant1Cano; //1
+    private int saberNavio;
+
+    public int getSaberNavio() {
+        return saberNavio;
+    }
+
+    public void setSaberNavio(int saberNavio) {
+        this.saberNavio = saberNavio;
+    }
 
 
     public Navios(int quant1Cano, int quant2Canos, int quant3Canos, int quant4Canos, int quantAvioes){
+        this.saberNavio = 1;
         this.quant1Cano = quant1Cano;
         this.quant2Canos = quant2Canos;
         this.quant3Canos = quant3Canos;
         this.quant4Canos = quant4Canos;
         this.quantAvioes = quantAvioes;
-
     }
-
-    public char navioAvioes(){
-        return 'P';
-    }
-
-    public char navio(){
-        return 'N';
-    }
-
 
     public int getQuantAvioes() {
         return quantAvioes;

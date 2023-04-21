@@ -1,36 +1,45 @@
 package model;
 
-import java.util.Scanner;
-import java.lang.*;
+import javax.swing.*;
 
-public class Tabuleiro extends Navios implements Grelha{
-    //Player player;
-    private char[][] dimensoes = new char[10][10];
-    public char[][] getDimensoes() {
-        return dimensoes;
+public class Tabuleiro implements Grelha{
+    private Navios navios;
+
+
+
+    private JButton[][] grid = new JButton[10][10];
+
+    public JButton[][] getGrid() {
+        return grid;
+    }
+    public void setGrid(JButton[][] grid) {
+        this.grid = grid;
     }
 
-    public void setDimensoes(int linha,int coluna,char valor) {
-        this.dimensoes[linha][coluna] = valor;
-    }
-    private int[] linhaA = new int [3];
-    private int[] linhaD = new int [10];
-    private int[] colunaA = new int [3];
-    private int[] colunaD = new int [10];
 
-    public void grelha(){
-        for(int i=0;i<dimensoes.length; i++) {
-            for (int j = 0; j < dimensoes.length; j++) {
-                dimensoes[i][j] = '□'; //'□';
+
+
+
+    public void CriarGrid(){
+
+        for(int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid.length; j++) {
             }
         }
     }
 
-    public Tabuleiro(int quant1Cano, int quant2Canos, int quant3Canos, int quant4Canos, int quantAvioes) {
-        super(quant1Cano,quant2Canos,quant3Canos,quant4Canos,quantAvioes);
-        grelha();
+    public Tabuleiro(Navios navios) {
+        this.navios = navios;
+        //CriarGrid();
     }
 
+    /*
+    private int[] linhaA = new int [3];
+    private int[] linhaD = new int [10];
+    private int[] colunaA = new int [3];
+    private int[] colunaD = new int [10];
+     */
+/*
     public void grelha(Tabuleiro x){
         for(int i=0;i<x.dimensoes.length; i++) {
             for (int j = 0; j < dimensoes.length; j++) {
@@ -312,6 +321,8 @@ public class Tabuleiro extends Navios implements Grelha{
             }
             System.out.println();
         }
-        //player.setGanhou(true);
+        //}
+        player.setGanhou(true);
     }
+    */
 }

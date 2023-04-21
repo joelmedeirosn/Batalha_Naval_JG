@@ -5,15 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import controller.Movimento;
 import model.*;
 
 public class Menu extends JFrame implements ActionListener {
-    private Player player1;
-    private Player player2;
-    private Tabuleiro tabuleiroP1;
 
-    private Tabuleiro tabuleiroP2;
 
+    private ModoJogo modoJogo;
     private JButton jogar = new JButton("JOGAR");
     private JButton recorde = new JButton("RECORDE");
     private JButton sair = new JButton("SAIR");
@@ -21,12 +19,8 @@ public class Menu extends JFrame implements ActionListener {
     private Font fonteLabel = new Font("Serif", Font.BOLD,50);
     private JLabel titulo = new JLabel();
 
-    public Menu(){
-        this.player1 = new Player(null,tabuleiroP1); //ajeitei o instanciamento de player nessa e nas outras classes, ficou parecido com o de lucas
-        this.player2 = new Player(null,tabuleiroP2);
-        //Player player1 = new Player();
-        //Player player2 = new Player();
-
+    public Menu(ModoJogo modoJogo){
+        this.modoJogo = modoJogo;
         titulo.setFont(fonteLabel);
         titulo.setText("Batalha Naval");
         titulo.setBounds(250,100,800,70);
@@ -73,21 +67,17 @@ public class Menu extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) { //metodo do action listener que da a função dos botões
-        if(e.getSource() == jogar){
-            ModoJogo nomeJogadores = new ModoJogo(player1,player2);
-            this.dispose();
-            nomeJogadores.setVisible(true);
+        if(e.getSource()== jogar){
+            modoJogo.setVisible(true);
+            setVisible(false);
         }
-        if(e.getSource() == sair){
+        if(e.getSource()== sair){
             System.exit(0);
         }
 
     }
 
-    public static void main(String[] args) {
-        new Menu();
 
-    }
 
 
 }
