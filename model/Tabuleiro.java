@@ -3,14 +3,14 @@ package model;
 import javax.swing.*;
 
 public class Tabuleiro implements Grelha{
+
+
     private Navios navios;
 
-
-
-    private JButton[][] grid = new JButton[10][10];
+    private JButton[][] grid;
 
     public JButton[][] getGrid() {
-        return grid;
+        return this.grid;
     }
     public void setGrid(JButton[][] grid) {
         this.grid = grid;
@@ -20,17 +20,20 @@ public class Tabuleiro implements Grelha{
 
 
 
-    public void CriarGrid(){
 
-        for(int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid.length; j++) {
-            }
-        }
+
+    public Tabuleiro() {
+        this.grid = new JButton[10][10];
+        CriarGrid();
     }
 
-    public Tabuleiro(Navios navios) {
-        this.navios = navios;
-        //CriarGrid();
+    @Override
+    public void CriarGrid() {
+        for(int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid.length; j++) {
+                this.grid[i][j] = new JButton(" ");
+            }
+        }
     }
 
     /*

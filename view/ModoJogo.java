@@ -1,7 +1,10 @@
 package view;
 
+import controller.MovimentoDefesa;
+import model.Navios;
 import model.NomeInvalidoException;
 import model.Player;
+import model.Tabuleiro;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,6 +13,13 @@ import java.awt.event.ActionListener;
 
 public class ModoJogo extends JFrame implements ActionListener {
 
+    private Navios navios = new Navios(4,3,2,1,1);
+    Tabuleiro tabuleiroP1 = new Tabuleiro();
+    Tabuleiro tabuleiroP2 = new Tabuleiro();
+    Player player1;
+    Player player2;
+    MovimentoDefesa movimentoDefesa1 = new MovimentoDefesa(tabuleiroP1,navios);
+    MovimentoDefesa movimentoDefesa2 = new MovimentoDefesa(tabuleiroP2,navios);
     private Menu menu;
     private JButton normal = new JButton("NORMAL");
     private JButton custom = new JButton("CUSTOM");
@@ -17,15 +27,13 @@ public class ModoJogo extends JFrame implements ActionListener {
     private Font fonteBotao = new Font("Courier New",Font.ITALIC | Font.BOLD,15);
     private JPanel painel = new JPanel();
     private JLabel titulo = new JLabel();
-    private Player player1;
-    private Player player2;
-    private Defesa defesa;
+
+    //private Defesa defesa;
 
 
-    public ModoJogo(Player player1, Player player2, Defesa defesa){
+    public ModoJogo(Player player1, Player player2){
         this.player1 = player1;
         this.player2 = player2;
-        this.defesa = defesa;
         painel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ESCOLHA O MODO DE JOGO:", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         this.configurarGuia();
         botoes();
@@ -88,9 +96,11 @@ public class ModoJogo extends JFrame implements ActionListener {
 
 
         if(e.getSource() == normal && this.player1.getPlayerName() != null && this.player2.getPlayerName() != null){
+            Defesa defesa = new Defesa(navios, tabuleiroP1, tabuleiroP2, player1, player2, movimentoDefesa1, movimentoDefesa2);
             setVisible(false);
-            this.dispose();
             defesa.setVisible(true);
+            defesa.getPainelTabuleiro().setVisible(false);
+            defesa.getPainelTabuleiro().setVisible(true);
 
         }
 

@@ -5,12 +5,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import controller.Movimento;
 import model.*;
 
 public class Menu extends JFrame implements ActionListener {
 
-
+    private Player p1;
+    private Player p2;
     private ModoJogo modoJogo;
     private JButton jogar = new JButton("JOGAR");
     private JButton recorde = new JButton("RECORDE");
@@ -19,8 +19,7 @@ public class Menu extends JFrame implements ActionListener {
     private Font fonteLabel = new Font("Serif", Font.BOLD,50);
     private JLabel titulo = new JLabel();
 
-    public Menu(ModoJogo modoJogo){
-        this.modoJogo = modoJogo;
+    public Menu(){
         titulo.setFont(fonteLabel);
         titulo.setText("Batalha Naval");
         titulo.setBounds(250,100,800,70);
@@ -68,6 +67,9 @@ public class Menu extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) { //metodo do action listener que da a função dos botões
         if(e.getSource()== jogar){
+            this.p1 = new Player();
+            this.p2 = new Player();
+            ModoJogo modoJogo = new ModoJogo(p1,p2);
             modoJogo.setVisible(true);
             setVisible(false);
         }

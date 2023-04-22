@@ -1,6 +1,6 @@
 package view;
 
-import controller.Movimento;
+import controller.MovimentoDefesa;
 import model.Navios;
 import model.Player;
 import model.Tabuleiro;
@@ -12,8 +12,14 @@ import java.awt.event.ActionListener;
 
 public class Defesa extends JFrame implements ActionListener{
 
-    private Movimento movimento;
+    private MovimentoDefesa movimentoDefesa1;
+    private MovimentoDefesa movimentoDefesa2;
     private Navios navios;
+    private Player player1;
+    private Player player2;
+
+    private Tabuleiro tabuleiroP1;
+    private Tabuleiro tabuleiroP2;
 
     private boolean avancou = false;
 
@@ -24,8 +30,7 @@ public class Defesa extends JFrame implements ActionListener{
     public void setAvancou(boolean avancou) {
         this.avancou = avancou;
     }
-    private int saberNavio;
-    private JButton[][] botoes;
+    //private JButton[][] botoes;
     private JRadioButton botaoAvioes = new JRadioButton("Porta Avioes");
     private JRadioButton botao1Cano = new JRadioButton("1 Cano");
     private JRadioButton botao2Canos = new JRadioButton("2 Canos");
@@ -35,23 +40,30 @@ public class Defesa extends JFrame implements ActionListener{
     private JButton avancar = new JButton("AVANÇAR");
     private JLabel titulo = new JLabel();
     private Font fonteLabel = new Font("Serif", Font.BOLD,50);
+
     private JPanel painelTabuleiro = new JPanel(new GridLayout(10,10));
+    public JPanel getPainelTabuleiro() {
+        return painelTabuleiro;
+    }
+
     private JPanel painel = new JPanel();
     ButtonGroup group = new ButtonGroup();
 
 
-    public Defesa(Navios navios, Tabuleiro tabuleiroP1, Tabuleiro tabuleiroP2,Player p,Movimento movimento) {
-        this.movimento = movimento;
+    public Defesa(Navios navios, Tabuleiro tabuleiroP1, Tabuleiro tabuleiroP2, Player player1, Player player2, MovimentoDefesa movimentoDefesa1, MovimentoDefesa movimentoDefesa2) {
+        this.movimentoDefesa1 = movimentoDefesa1;
+        this.movimentoDefesa2 = movimentoDefesa2;
         this.navios = navios;
-        painelTabuleiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "" + p.getPlayerName() + "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
-        repaint();
-        botoes = new JButton[10][10];
-        this.configurarGuia();
-        this.configTabuleiro();
+        this.player1 = player1;
+        this.player2 = player2;
+        this.tabuleiroP1 = tabuleiroP1;
+        this.tabuleiroP2 = tabuleiroP2;
+        this.configurarGuia(player1);
+        this.configTabuleiro(tabuleiroP1, movimentoDefesa1);
         this.botoes();
     }
 
-    public void configurarGuia(){
+    public void configurarGuia(Player player){
         setSize(800,800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -59,19 +71,19 @@ public class Defesa extends JFrame implements ActionListener{
         setVisible(false);
         setLayout(null);
         painelTabuleiro.setSize(500,750);
+        painelTabuleiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "" + player.getPlayerName() + "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         painel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SELECIONE OS NAVIOS:", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         painel.setBounds(500,0,285,750);
         add(painel);
     }
 
-    public void configTabuleiro(){
+    public void configTabuleiro(Tabuleiro tabuleiro, MovimentoDefesa movimentoDefesa){
 
-
-        for(int i = 0; i<this.botoes.length;i++){
-            for(int j = 0;j<this.botoes[i].length;j++){
-                this.botoes[i][j] = new JButton();
-                this.botoes[i][j].addActionListener(movimento);
-                this.painelTabuleiro.add(this.botoes[i][j]);
+        //lembrar de receber parametro para os dois botoes
+        for(int i = 0; i<tabuleiro.getGrid().length;i++){
+            for(int j = 0;j<tabuleiro.getGrid()[i].length;j++){
+                tabuleiro.getGrid()[i][j].addActionListener(movimentoDefesa);
+                this.painelTabuleiro.add(tabuleiro.getGrid()[i][j]);
             }
         }
         add(this.painelTabuleiro);
@@ -155,8 +167,20 @@ public class Defesa extends JFrame implements ActionListener{
         }
 
         if(e.getSource() == avancar){
-            this.avancou = true;
-            setVisible(false);
+            if(this.avancou == false) {
+                this.avancou = true;
+                painelTabuleiro.setVisible(false);
+                painelTabuleiro.removeAll();
+                configurarGuia(player2);
+                configTabuleiro(tabuleiroP2, movimentoDefesa2);
+                painelTabuleiro.setVisible(false);
+                painelTabuleiro.setVisible(true);
+                setVisible(true);
+            } else {
+                Ataque ataque = new Ataque(player1,player2,tabuleiroP1,tabuleiroP2);
+                setVisible(false);
+                ataque.setVisible(true);
+            }
         }
     }
 }
