@@ -1,0 +1,12 @@
+JTextField caixa = new JTextField(10); //caixa de texto
+construtor: add(caixa);
+caixa.setText("texto");
+sysout(caixa.getText()); //printa no console o que for digitado
+
+Checkbox: aula 53
+
+RadioButton: aula 54
+
+JComboBox: aula 55
+
+
