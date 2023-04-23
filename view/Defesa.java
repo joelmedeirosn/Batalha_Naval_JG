@@ -71,7 +71,7 @@ public class Defesa extends JFrame implements ActionListener{
         setVisible(false);
         setLayout(null);
         painelTabuleiro.setSize(500,750);
-        painelTabuleiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "" + player.getPlayerName() + "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        painelTabuleiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Capitão " + player.getPlayerName() + ", posicione seus navios.", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         painel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SELECIONE OS NAVIOS:", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         painel.setBounds(500,0,285,750);
         add(painel);
@@ -166,22 +166,35 @@ public class Defesa extends JFrame implements ActionListener{
             repaint();
         }
 
-        if(e.getSource() == avancar){
-            if(this.avancou == false) {
-                this.avancou = true;
-                painelTabuleiro.setVisible(false);
-                painelTabuleiro.removeAll();
-                configurarGuia(player2);
-                configTabuleiro(tabuleiroP2, movimentoDefesa2);
-                painelTabuleiro.setVisible(false);
-                painelTabuleiro.setVisible(true);
-                setVisible(true);
+
+            if(movimentoDefesa1.getContador1() == navios.getQuant1Cano() && movimentoDefesa1.getContador2() == navios.getQuant2Canos() && movimentoDefesa1.getContador3() == navios.getQuant3Canos()
+            && movimentoDefesa1.getContador4() == navios.getQuant4Canos() && movimentoDefesa1.getContador5() == navios.getQuantAvioes()){
+                if(e.getSource() == avancar){
+                    if(this.avancou == false) {
+                        this.avancou = true;
+                        painelTabuleiro.setVisible(false);
+                        painelTabuleiro.removeAll();
+                        configurarGuia(player2);
+                        configTabuleiro(tabuleiroP2, movimentoDefesa2);
+                        painelTabuleiro.setVisible(false);
+                        painelTabuleiro.setVisible(true);
+                        setVisible(true);
+                        movimentoDefesa1.setContador1(0);
+                    }
+                }
+
             } else {
-                Ataque ataque = new Ataque(player1,player2,tabuleiroP1,tabuleiroP2);
-                setVisible(false);
-                ataque.setVisible(true);
+                    if(movimentoDefesa2.getContador1() == navios.getQuant1Cano() && movimentoDefesa2.getContador2() == navios.getQuant2Canos() && movimentoDefesa2.getContador3() == navios.getQuant3Canos()
+                            && movimentoDefesa2.getContador4() == navios.getQuant4Canos() && movimentoDefesa2.getContador5() == navios.getQuantAvioes()){
+
+                            if(e.getSource()==avancar){
+                            Ataque ataque = new Ataque(player1,player2,tabuleiroP1,tabuleiroP2);
+                            setVisible(false);
+                            ataque.setVisible(true);
+                        }
+                    }
             }
-        }
+
     }
 }
 

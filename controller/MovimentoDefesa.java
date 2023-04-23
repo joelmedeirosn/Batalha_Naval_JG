@@ -16,6 +16,30 @@ public class MovimentoDefesa implements ActionListener {
         this.navios = navios;
     }
 
+    public void setContador1(int contador1) {
+        this.contador1 = contador1;
+    }
+
+    public int getContador1() {
+        return contador1;
+    }
+
+    public int getContador2() {
+        return contador2;
+    }
+
+    public int getContador3() {
+        return contador3;
+    }
+
+    public int getContador4() {
+        return contador4;
+    }
+
+    public int getContador5() {
+        return contador5;
+    }
+
     public void actionPerformed(ActionEvent e){
 
         for(int i = 0; i<tabuleiro.getGrid().length;i++){

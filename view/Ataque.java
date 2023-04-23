@@ -34,7 +34,7 @@ public class Ataque extends JFrame {
         setVisible(false);
         setLayout(null);
         painelTabuleiro.setSize(785,750);
-        painelTabuleiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "" + player.getPlayerName() + " sua vez de atacar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        painelTabuleiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "" + player.getPlayerName() + ", sua vez de atacar!", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         add(painelTabuleiro);
     }
 

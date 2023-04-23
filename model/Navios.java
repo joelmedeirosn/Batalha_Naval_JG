@@ -20,7 +20,7 @@ public class Navios{
 
 
     public Navios(int quant1Cano, int quant2Canos, int quant3Canos, int quant4Canos, int quantAvioes){
-        this.saberNavio = 1;
+        this.saberNavio = 0;
         this.quant1Cano = quant1Cano;
         this.quant2Canos = quant2Canos;
         this.quant3Canos = quant3Canos;

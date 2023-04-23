@@ -80,19 +80,19 @@ public class ModoJogo extends JFrame implements ActionListener {
         if(e.getSource() == normal || e.getSource()==custom){
 
             try{
-               this.player1.setPlayerName(JOptionPane.showInputDialog("Qual o seu nome, capitão?"));
-           } catch (NomeInvalidoException x){
-               JOptionPane.showMessageDialog(null, x.getMessage(), "Usuário incorreto", JOptionPane.WARNING_MESSAGE);
-               actionPerformed(e);
-           }
+                this.player1.setPlayerName(JOptionPane.showInputDialog("Qual o seu nome, capitão?"));
+            } catch (NomeInvalidoException x){
+                JOptionPane.showMessageDialog(null, x.getMessage(), "Usuário incorreto", JOptionPane.WARNING_MESSAGE);
+
+            }
 
             try{
                 this.player2.setPlayerName(JOptionPane.showInputDialog("Qual o seu nome, capitão?"));
             } catch (NomeInvalidoException x){
                 JOptionPane.showMessageDialog(null, x.getMessage(), "Usuário incorreto", JOptionPane.WARNING_MESSAGE);
-                actionPerformed(e);
+
             }
-       }
+        }
 
 
         if(e.getSource() == normal && this.player1.getPlayerName() != null && this.player2.getPlayerName() != null){
