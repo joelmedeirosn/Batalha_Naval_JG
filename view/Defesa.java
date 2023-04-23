@@ -36,10 +36,10 @@ public class Defesa extends JFrame implements ActionListener{
     private JRadioButton botao2Canos = new JRadioButton("2 Canos");
     private JRadioButton botao3Canos = new JRadioButton("3 Canos");
     private JRadioButton botao4Canos = new JRadioButton("4 Canos");
-    private JButton girar = new JButton("GIRAR");
     private JButton avancar = new JButton("AVANÇAR");
     private JLabel titulo = new JLabel();
     private Font fonteLabel = new Font("Serif", Font.BOLD,50);
+    private Font fonteBotao = new Font("Tahoma",Font.ITALIC | Font.BOLD,15);
 
     private JPanel painelTabuleiro = new JPanel(new GridLayout(10,10));
     public JPanel getPainelTabuleiro() {
@@ -90,6 +90,12 @@ public class Defesa extends JFrame implements ActionListener{
     }
 
     public void botoes(){
+        botao1Cano.setFont(fonteBotao);
+        botao2Canos.setFont(fonteBotao);
+        botao3Canos.setFont(fonteBotao);
+        botao4Canos.setFont(fonteBotao);
+        botaoAvioes.setFont(fonteBotao);
+        avancar.setFont(fonteBotao);
 
         botao1Cano.setAlignmentX(Component.RIGHT_ALIGNMENT);
         botao1Cano.setMaximumSize(new Dimension(250,80));
@@ -126,13 +132,10 @@ public class Defesa extends JFrame implements ActionListener{
         painel.add(Box.createRigidArea(new Dimension(0,200)));
         painel.add(botaoAvioes);
 
-        girar.setAlignmentX(Component.CENTER_ALIGNMENT);
-        girar.setMaximumSize(new Dimension(150,80));
-        girar.addActionListener(this);
-
         painel.add(Box.createRigidArea(new Dimension(0,200)));
-        painel.add(girar);
 
+        avancar.setForeground(Color.BLACK);
+        avancar.setBackground(Color.RED);
         avancar.setAlignmentX(Component.CENTER_ALIGNMENT);
         avancar.setMaximumSize(new Dimension(200,80));
         avancar.addActionListener(this);

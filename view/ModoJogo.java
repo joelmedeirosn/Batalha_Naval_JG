@@ -24,7 +24,7 @@ public class ModoJogo extends JFrame implements ActionListener {
     private JButton normal = new JButton("NORMAL");
     private JButton custom = new JButton("CUSTOM");
     private JButton voltar = new JButton("VOLTAR");
-    private Font fonteBotao = new Font("Courier New",Font.ITALIC | Font.BOLD,15);
+    private Font fonteBotao = new Font("Tahoma",Font.ITALIC | Font.BOLD,15);
     private JPanel painel = new JPanel();
     private JLabel titulo = new JLabel();
 
@@ -41,17 +41,27 @@ public class ModoJogo extends JFrame implements ActionListener {
     }
 
     public void botoes(){
+        normal.setFont(fonteBotao);
+        custom.setFont(fonteBotao);
+        voltar.setFont(fonteBotao);
+
         normal.setAlignmentX(CENTER_ALIGNMENT);
         normal.setMaximumSize(new Dimension(200,80));
         normal.addActionListener(this);
+        normal.setForeground(Color.BLACK);
+        normal.setBackground(Color.RED);
 
         custom.setAlignmentX(CENTER_ALIGNMENT);
         custom.setMaximumSize(new Dimension(200,80));
         custom.addActionListener(this);
+        custom.setForeground(Color.BLACK);
+        custom.setBackground(Color.RED);
 
         voltar.setAlignmentX(CENTER_ALIGNMENT);
         voltar.setMaximumSize(new Dimension(200,80));
         voltar.addActionListener(this);
+        voltar.setForeground(Color.BLACK);
+        voltar.setBackground(Color.RED);
 
         painel.setLayout(new BoxLayout(painel, BoxLayout.PAGE_AXIS));
         painel.setPreferredSize(new Dimension(800,800));
@@ -114,8 +124,9 @@ public class ModoJogo extends JFrame implements ActionListener {
         }
 
         if(e.getSource()== voltar){
+            Menu menu = new Menu();
             this.dispose();
-            //menu.setVisible(true);
+            menu.setVisible(true);
         }
 
 

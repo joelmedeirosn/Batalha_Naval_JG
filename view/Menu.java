@@ -15,7 +15,7 @@ public class Menu extends JFrame implements ActionListener {
     private JButton jogar = new JButton("JOGAR");
     private JButton recorde = new JButton("RECORDE");
     private JButton sair = new JButton("SAIR");
-    private Font fonteBotao = new Font("Courier New",Font.ITALIC | Font.BOLD,15);
+    private Font fonteBotao = new Font("Tahoma",Font.ITALIC | Font.BOLD,15);
     private Font fonteLabel = new Font("Serif", Font.BOLD,50);
     private JLabel titulo = new JLabel();
 
@@ -43,12 +43,12 @@ public class Menu extends JFrame implements ActionListener {
         recorde.setFont(fonteBotao);
         sair.setFont(fonteBotao);
 
-        jogar.setForeground(Color.cyan);
-        jogar.setBackground(Color.darkGray);
-        recorde.setForeground(Color.cyan);
-        recorde.setBackground(Color.darkGray);
-        sair.setForeground(Color.cyan);
-        sair.setBackground(Color.darkGray);
+        jogar.setForeground(Color.BLACK);
+        jogar.setBackground(Color.RED);
+        recorde.setForeground(Color.BLACK);
+        recorde.setBackground(Color.RED);
+        sair.setForeground(Color.BLACK);
+        sair.setBackground(Color.RED);
 
         jogar.addActionListener(this);
         recorde.addActionListener(this);

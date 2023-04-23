@@ -3,6 +3,7 @@ package controller;
 import model.*;
 
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -48,12 +49,17 @@ public class MovimentoDefesa implements ActionListener {
 
                     if (navios.getSaberNavio() == 1 && contador1 < navios.getQuant1Cano() && tabuleiro.getGrid()[i][j].getText().equals(" ")){
                         tabuleiro.getGrid()[i][j].setText("N");
+
+                        tabuleiro.getGrid()[i][j].setBackground(Color.BLUE);
                         contador1++;
 
                     } else if (navios.getSaberNavio() == 2 && contador2 < navios.getQuant2Canos() && tabuleiro.getGrid()[i][j].getText().equals(" ")
                             && tabuleiro.getGrid()[i][j+1].getText().equals(" ")) {
                         tabuleiro.getGrid()[i][j].setText("N");
                         tabuleiro.getGrid()[i][j+1].setText("N");
+
+                        tabuleiro.getGrid()[i][j].setBackground(Color.BLUE);
+                        tabuleiro.getGrid()[i][j+1].setBackground(Color.BLUE);
 
                         contador2++;
 
@@ -64,6 +70,10 @@ public class MovimentoDefesa implements ActionListener {
                         tabuleiro.getGrid()[i][j+1].setText("N");
                         tabuleiro.getGrid()[i][j+2].setText("N");
 
+                        tabuleiro.getGrid()[i][j].setBackground(Color.BLUE);
+                        tabuleiro.getGrid()[i][j+1].setBackground(Color.BLUE);
+                        tabuleiro.getGrid()[i][j+2].setBackground(Color.BLUE);
+
                         contador3++;
 
                     } else if (navios.getSaberNavio() == 4 && contador4 < navios.getQuant4Canos() && tabuleiro.getGrid()[i][j].getText().equals(" ") && tabuleiro.getGrid()[i][j+1].getText().equals(" ")
@@ -72,6 +82,11 @@ public class MovimentoDefesa implements ActionListener {
                         tabuleiro.getGrid()[i][j+1].setText("N");
                         tabuleiro.getGrid()[i][j+2].setText("N");
                         tabuleiro.getGrid()[i][j+3].setText("N");
+
+                        tabuleiro.getGrid()[i][j].setBackground(Color.BLUE);
+                        tabuleiro.getGrid()[i][j+1].setBackground(Color.BLUE);
+                        tabuleiro.getGrid()[i][j+2].setBackground(Color.BLUE);
+                        tabuleiro.getGrid()[i][j+3].setBackground(Color.BLUE);
 
                         contador4++;
 
@@ -82,6 +97,12 @@ public class MovimentoDefesa implements ActionListener {
                         tabuleiro.getGrid()[i][j+2].setText("P");
                         tabuleiro.getGrid()[i+1][j+1].setText("P");
                         tabuleiro.getGrid()[i+2][j+1].setText("P");
+
+                        tabuleiro.getGrid()[i][j].setBackground(Color.BLUE);
+                        tabuleiro.getGrid()[i][j+1].setBackground(Color.BLUE);
+                        tabuleiro.getGrid()[i][j+2].setBackground(Color.BLUE);
+                        tabuleiro.getGrid()[i+1][j+1].setBackground(Color.BLUE);
+                        tabuleiro.getGrid()[i+2][j+1].setBackground(Color.BLUE);
 
                         contador5++;
                     }
