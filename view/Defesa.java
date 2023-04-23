@@ -1,5 +1,6 @@
 package view;
 
+import controller.MovimentoAtaque;
 import controller.MovimentoDefesa;
 import model.Navios;
 import model.Player;
@@ -17,9 +18,12 @@ public class Defesa extends JFrame implements ActionListener{
     private Navios navios;
     private Player player1;
     private Player player2;
-
-    private Tabuleiro tabuleiroP1;
-    private Tabuleiro tabuleiroP2;
+    private Tabuleiro tabuleiroDefesaP1;
+    private Tabuleiro tabuleiroDefesaP2;
+    private Tabuleiro tabuleiroAtaqueP1 = new Tabuleiro();
+    private Tabuleiro tabuleiroAtaqueP2 = new Tabuleiro();
+    private MovimentoAtaque movimentoAtaqueP1 = new MovimentoAtaque(tabuleiroAtaqueP1,tabuleiroDefesaP2);
+    private MovimentoAtaque movimentoAtaqueP2 = new MovimentoAtaque(tabuleiroAtaqueP2,tabuleiroDefesaP1);
 
     private boolean avancou = false;
 
@@ -50,16 +54,16 @@ public class Defesa extends JFrame implements ActionListener{
     ButtonGroup group = new ButtonGroup();
 
 
-    public Defesa(Navios navios, Tabuleiro tabuleiroP1, Tabuleiro tabuleiroP2, Player player1, Player player2, MovimentoDefesa movimentoDefesa1, MovimentoDefesa movimentoDefesa2) {
+    public Defesa(Navios navios, Tabuleiro tabuleiroDefesaP1, Tabuleiro tabuleiroDefesaP2, Player player1, Player player2, MovimentoDefesa movimentoDefesa1, MovimentoDefesa movimentoDefesa2) {
         this.movimentoDefesa1 = movimentoDefesa1;
         this.movimentoDefesa2 = movimentoDefesa2;
         this.navios = navios;
         this.player1 = player1;
         this.player2 = player2;
-        this.tabuleiroP1 = tabuleiroP1;
-        this.tabuleiroP2 = tabuleiroP2;
+        this.tabuleiroDefesaP1 = tabuleiroDefesaP1;
+        this.tabuleiroDefesaP2 = tabuleiroDefesaP2;
         this.configurarGuia(player1);
-        this.configTabuleiro(tabuleiroP1, movimentoDefesa1);
+        this.configTabuleiro(tabuleiroDefesaP1, movimentoDefesa1);
         this.botoes();
     }
 
@@ -178,7 +182,7 @@ public class Defesa extends JFrame implements ActionListener{
                         painelTabuleiro.setVisible(false);
                         painelTabuleiro.removeAll();
                         configurarGuia(player2);
-                        configTabuleiro(tabuleiroP2, movimentoDefesa2);
+                        configTabuleiro(tabuleiroDefesaP2, movimentoDefesa2);
                         painelTabuleiro.setVisible(false);
                         painelTabuleiro.setVisible(true);
                         setVisible(true);
@@ -189,9 +193,8 @@ public class Defesa extends JFrame implements ActionListener{
             } else {
                     if(movimentoDefesa2.getContador1() == navios.getQuant1Cano() && movimentoDefesa2.getContador2() == navios.getQuant2Canos() && movimentoDefesa2.getContador3() == navios.getQuant3Canos()
                             && movimentoDefesa2.getContador4() == navios.getQuant4Canos() && movimentoDefesa2.getContador5() == navios.getQuantAvioes()){
-
                             if(e.getSource()==avancar){
-                            Ataque ataque = new Ataque(player1,player2,tabuleiroP1,tabuleiroP2);
+                            Ataque ataque = new Ataque(player1,player2, tabuleiroDefesaP1, tabuleiroDefesaP2);
                             setVisible(false);
                             ataque.setVisible(true);
                         }
