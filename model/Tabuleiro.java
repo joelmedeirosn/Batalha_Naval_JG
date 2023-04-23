@@ -18,10 +18,6 @@ public class Tabuleiro implements Grelha{
 
 
 
-
-
-
-
     public Tabuleiro() {
         this.grid = new JButton[10][10];
         CriarGrid();
