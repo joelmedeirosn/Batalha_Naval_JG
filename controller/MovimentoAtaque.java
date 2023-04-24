@@ -15,7 +15,7 @@ public class MovimentoAtaque implements ActionListener {
 
     private Navios navios;
 
-    private int cont = 0;
+    private int cont;
 
     public void setCont(int cont) {
         this.cont = cont;
@@ -31,25 +31,25 @@ public class MovimentoAtaque implements ActionListener {
         this.tabuleiroDefesa = tabuleiroDefesa;
     }
 
+
+
     public void actionPerformed(ActionEvent e){
         for(int i = 0; i<tabuleiroAtaque.getGrid().length;i++){
             for(int j = 0;j<tabuleiroAtaque.getGrid()[i].length;j++){
 
                 if (e.getSource() == tabuleiroAtaque.getGrid()[i][j]){
 
-                    if (tabuleiroDefesa.getGrid()[i][j].getText().equals("N") || tabuleiroDefesa.getGrid()[i][j].getText().equals("P")){
+                    if(tabuleiroDefesa.getGrid()[i][j].getText().equals(" ") && tabuleiroAtaque.getGrid()[i][j].getText().equals("A")){
+
+                    } else if (tabuleiroDefesa.getGrid()[i][j].getText().equals(" ") && tabuleiroAtaque.getGrid()[i][j].getText().equals("X")) {
+
+                    } else if ((tabuleiroDefesa.getGrid()[i][j].getText().equals("N") || tabuleiroDefesa.getGrid()[i][j].getText().equals("P")) && tabuleiroAtaque.getGrid()[i][j].getText().equals(" ")) {
                         tabuleiroAtaque.getGrid()[i][j].setText("X");
                         cont++;
-                    }
-
-                    if (tabuleiroDefesa.getGrid()[i][j].getText().equals(" ")) {
+                    } else if (tabuleiroDefesa.getGrid()[i][j].getText().equals(" ") || tabuleiroAtaque.getGrid()[i][j].getText().equals(" ")) {
                         tabuleiroAtaque.getGrid()[i][j].setText("A");
                         cont++;
                     }
-
-                    if (tabuleiroAtaque.getGrid()[i][j].getText().equals("A") || tabuleiroAtaque.getGrid()[i][j].getText().equals("X")) {
-                    }
-
 
                     System.out.println(cont);
                 }
