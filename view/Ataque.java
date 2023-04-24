@@ -97,11 +97,11 @@ public class Ataque extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
 
         if(player1.isGanhou()){
-            JOptionPane.showMessageDialog(null, "Arrr Capitão"+ player1.getPlayerName() +", você derrubou todos os navios de "+ player2.getPlayerName() +"", "🥳🥳🥳PARABENS!!!🥳🥳🥳", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Arrr Capitão"+ player1.getPlayerName() +", você derrubou todos os navios de "+ player2.getPlayerName() +"", "🥳🥳🥳PARABENS!!!🥳🥳🥳", JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
         if(player2.isGanhou()){
-            JOptionPane.showMessageDialog(null, "Arrr Capitão "+ player2.getPlayerName() +"️, você derrubou todos os navios de"+ player1.getPlayerName() +"", "🥳🥳🥳PARABENS!!!🥳🥳🥳", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Arrr Capitão "+ player2.getPlayerName() +"️, você derrubou todos os navios de"+ player1.getPlayerName() +"", "🥳🥳🥳PARABENS!!!🥳🥳🥳", JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
 
@@ -142,11 +142,11 @@ public class Ataque extends JFrame implements ActionListener{
         }
 
         if(player1.isGanhou()){
-            JOptionPane.showMessageDialog(null, "Arrr Capitão "+ player1.getPlayerName() +"️, você derrubou todos os navios de "+ player2.getPlayerName() +"", "🥳🥳🥳PARABENS!!!🥳🥳🥳", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Arrr Capitão "+ player1.getPlayerName() +"️, você derrubou todos os navios de "+ player2.getPlayerName() +"", "🥳🥳🥳PARABENS!!!🥳🥳🥳", JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
         if(player2.isGanhou()){
-            JOptionPane.showMessageDialog(null, "Arrr Capitão "+ player2.getPlayerName() +", você derrubou todos os navios de"+ player1.getPlayerName() +"", "🥳🥳🥳PARABENS!!!🥳🥳🥳", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Arrr Capitão "+ player2.getPlayerName() +", você derrubou todos os navios de"+ player1.getPlayerName() +"", "🥳🥳🥳PARABENS!!!🥳🥳🥳", JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
 
