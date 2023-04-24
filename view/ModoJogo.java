@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 
 public class ModoJogo extends JFrame implements ActionListener {
 
-    private Navios navios = new Navios(1,0,0,0,0);
+    private Navios navios = new Navios(4,3,2,1,1);
     Tabuleiro tabuleiroP1 = new Tabuleiro();
     Tabuleiro tabuleiroP2 = new Tabuleiro();
     Player player1;
