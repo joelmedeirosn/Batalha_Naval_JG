@@ -12,6 +12,7 @@ public class Menu extends JFrame implements ActionListener {
     private Player p2;
     private JButton jogar = new JButton("JOGAR");
     private JButton recorde = new JButton("RECORDE");
+    private JButton instrucoes = new JButton("INSTRUÇÕES");
     private JButton sair = new JButton("SAIR");
     private Font fonteBotao = new Font("Tahoma",Font.ITALIC | Font.BOLD,15);
     private Font fonteLabel = new Font("Serif", Font.BOLD,50);
@@ -38,25 +39,31 @@ public class Menu extends JFrame implements ActionListener {
     public void botoes(){
         jogar.setFont(fonteBotao);
         recorde.setFont(fonteBotao);
+        instrucoes.setFont(fonteBotao);
         sair.setFont(fonteBotao);
 
         jogar.setForeground(Color.BLACK);
         jogar.setBackground(Color.RED);
         recorde.setForeground(Color.BLACK);
         recorde.setBackground(Color.RED);
+        instrucoes.setForeground(Color.BLACK);
+        instrucoes.setBackground(Color.RED);
         sair.setForeground(Color.BLACK);
         sair.setBackground(Color.RED);
 
         jogar.addActionListener(this);
         recorde.addActionListener(this);
+        instrucoes.addActionListener(this);
         sair.addActionListener(this);
 
         jogar.setBounds(300,240,200,70);
         recorde.setBounds(300,368,200,70);
-        sair.setBounds(300,496,200,70);
+        instrucoes.setBounds(300,496,200,70);
+        sair.setBounds(300,624,200,70);
 
         add(jogar);
         add(recorde);
+        add(instrucoes);
         add(sair);
         setLayout(null);
     }
@@ -70,6 +77,14 @@ public class Menu extends JFrame implements ActionListener {
             ModoJogo modoJogo = new ModoJogo(p1, p2);
             modoJogo.setVisible(true);
             setVisible(false);
+        }
+
+        if(e.getSource()==recorde){
+
+        }
+
+        if(e.getSource()==instrucoes){
+            JOptionPane.showMessageDialog(null, "- Batalha Naval é um jogo onde dois jogadores colocam navios em uma grade de 10x10 células e tentam afundar os \n navios do oponente antes que os seus próprios navios sejam afundados.\n - Cada jogador (no modo normal) tem 10 navios de tamanhos diferentes para posicionar no tabuleiro.\n - Durante a fase de ataques, os jogadores selecionam as células na grade do oponente para tentar acertar os navios.\n - O primeiro jogador a afundar todos os navios do oponente vence o jogo.");
         }
 
         if (e.getSource() == sair) {
