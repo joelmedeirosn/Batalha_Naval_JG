@@ -13,13 +13,13 @@ import java.awt.event.ActionListener;
 
 public class ModoJogo extends JFrame implements ActionListener {
 
-    private Navios navios = new Navios(4,3,2,1,1);
-    Tabuleiro tabuleiroP1 = new Tabuleiro();
-    Tabuleiro tabuleiroP2 = new Tabuleiro();
-    Player player1;
-    Player player2;
-    MovimentoDefesa movimentoDefesa1 = new MovimentoDefesa(tabuleiroP1,navios);
-    MovimentoDefesa movimentoDefesa2 = new MovimentoDefesa(tabuleiroP2,navios);
+    private Navios navios = new Navios(2,2,2,2,2);
+    private Tabuleiro tabuleiroP1 = new Tabuleiro();
+    private Tabuleiro tabuleiroP2 = new Tabuleiro();
+    private Player player1;
+    private Player player2;
+    private MovimentoDefesa movimentoDefesa1 = new MovimentoDefesa(tabuleiroP1,navios);
+    private MovimentoDefesa movimentoDefesa2 = new MovimentoDefesa(tabuleiroP2,navios);
     private Menu menu;
     private JButton normal = new JButton("NORMAL");
     private JButton custom = new JButton("CUSTOM");
@@ -106,7 +106,7 @@ public class ModoJogo extends JFrame implements ActionListener {
 
 
         if(e.getSource() == normal && this.player1.getPlayerName() != null && this.player2.getPlayerName() != null){
-            Defesa defesa = new Defesa(navios, tabuleiroP1, tabuleiroP2, player1, player2, movimentoDefesa1, movimentoDefesa2);
+            Defesa defesa = new Defesa(navios,tabuleiroP1, tabuleiroP2, player1, player2, movimentoDefesa1, movimentoDefesa2);
             setVisible(false);
             defesa.setVisible(true);
             defesa.getPainelTabuleiro().setVisible(false);

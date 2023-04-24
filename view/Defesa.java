@@ -22,8 +22,8 @@ public class Defesa extends JFrame implements ActionListener{
     private Tabuleiro tabuleiroDefesaP2;
     private Tabuleiro tabuleiroAtaqueP1 = new Tabuleiro();
     private Tabuleiro tabuleiroAtaqueP2 = new Tabuleiro();
-    private MovimentoAtaque movimentoAtaqueP1 = new MovimentoAtaque(tabuleiroAtaqueP1,tabuleiroDefesaP2);
-    private MovimentoAtaque movimentoAtaqueP2 = new MovimentoAtaque(tabuleiroAtaqueP2,tabuleiroDefesaP1);
+    private MovimentoAtaque movimentoAtaqueP1 = new MovimentoAtaque(navios, player1,tabuleiroAtaqueP1,tabuleiroDefesaP2);
+    private MovimentoAtaque movimentoAtaqueP2 = new MovimentoAtaque(navios, player2, tabuleiroAtaqueP2,tabuleiroDefesaP1);
 
     private boolean avancou = false;
 
@@ -193,8 +193,9 @@ public class Defesa extends JFrame implements ActionListener{
             } else {
                     if(movimentoDefesa2.getContador1() == navios.getQuant1Cano() && movimentoDefesa2.getContador2() == navios.getQuant2Canos() && movimentoDefesa2.getContador3() == navios.getQuant3Canos()
                             && movimentoDefesa2.getContador4() == navios.getQuant4Canos() && movimentoDefesa2.getContador5() == navios.getQuantAvioes()){
-                            if(e.getSource()==avancar){
-                            Ataque ataque = new Ataque(player1,player2, tabuleiroDefesaP1, tabuleiroDefesaP2);
+
+                        if(e.getSource()==avancar){
+                            Ataque ataque = new Ataque(player1,player2, tabuleiroDefesaP1, tabuleiroDefesaP2,navios);
                             setVisible(false);
                             ataque.setVisible(true);
                         }

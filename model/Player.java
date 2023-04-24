@@ -5,13 +5,18 @@ import java.util.Scanner;
 
 public class Player {
     private String playerName;
+
     private boolean ganhou = false;
+    public boolean isGanhou() {
+        return ganhou;
+    }
 
-
+    public void setGanhou(boolean ganhou) {
+        this.ganhou = ganhou;
+    }
 
     public Player(){
     }
-
 
     public String getPlayerName() {
         return playerName;
@@ -27,8 +32,6 @@ public class Player {
         }
     }
 
-    public void setGanhou(boolean ganhou) {
-        this.ganhou = ganhou;
-    }
+
 
 }

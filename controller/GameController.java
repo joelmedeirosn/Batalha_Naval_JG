@@ -10,15 +10,9 @@ import view.ModoJogo;
 import java.awt.*;
 
 public class GameController {
-
-
     public static void main(String[] args) {
         new Menu();
 
-
-
-        //ModoJogo modoJogo = new ModoJogo(player1, player2);
-        //Menu menu = new Menu(modoJogo);
     }
 }
 
