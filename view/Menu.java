@@ -66,20 +66,21 @@ public class Menu extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) { //metodo do action listener que da a função dos botões
-        if(e.getSource()== jogar){
+        if (e.getSource() == jogar) {
             this.p1 = new Player();
             this.p2 = new Player();
-            ModoJogo modoJogo = new ModoJogo(p1,p2);
+            ModoJogo modoJogo = new ModoJogo(p1, p2);
             modoJogo.setVisible(true);
             setVisible(false);
         }
-        if(e.getSource()== sair){
-            System.exit(0);
+        if (e.getSource() == sair) {
+            int confirm = JOptionPane.showConfirmDialog(null, "Você está prestes a abandonar a tripulação, capitão.", "Sair do jogo", JOptionPane.YES_NO_OPTION);
+            if (confirm == JOptionPane.YES_OPTION) {
+                System.exit(0);
+            }
+
         }
 
+
     }
-
-
-
-
 }
