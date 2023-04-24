@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 
 public class ModoJogo extends JFrame implements ActionListener {
 
-    private Navios navios = new Navios(2,2,2,2,2);
+    private Navios navios = new Navios(1,1,1,1,1);
     private Tabuleiro tabuleiroP1 = new Tabuleiro();
     private Tabuleiro tabuleiroP2 = new Tabuleiro();
     private Player player1;
@@ -90,14 +90,14 @@ public class ModoJogo extends JFrame implements ActionListener {
         if(e.getSource() == normal || e.getSource()==custom){
 
             try{
-                this.player1.setPlayerName(JOptionPane.showInputDialog("Qual o seu nome, capitão?"));
+                this.player1.setPlayerName(JOptionPane.showInputDialog("Qual o seu nome, capitão Um?"));
             } catch (NomeInvalidoException x){
                 JOptionPane.showMessageDialog(null, x.getMessage(), "Usuário incorreto", JOptionPane.WARNING_MESSAGE);
 
             }
 
             try{
-                this.player2.setPlayerName(JOptionPane.showInputDialog("Qual o seu nome, capitão?"));
+                this.player2.setPlayerName(JOptionPane.showInputDialog("Qual o seu nome, capitão Dois?"));
             } catch (NomeInvalidoException x){
                 JOptionPane.showMessageDialog(null, x.getMessage(), "Usuário incorreto", JOptionPane.WARNING_MESSAGE);
 

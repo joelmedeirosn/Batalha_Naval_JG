@@ -47,19 +47,29 @@ public class MovimentoAtaque implements ActionListener {
 
                 if (e.getSource() == tabuleiroAtaque.getGrid()[i][j]){
 
-                    if(tabuleiroDefesa.getGrid()[i][j].getText().equals(" ") && tabuleiroAtaque.getGrid()[i][j].getText().equals("A")){
-                    }
+                    if(tabuleiroDefesa.getGrid()[i][j].getText().equals(" ") && (tabuleiroAtaque.getGrid()[i][j].getText().equals("A")) ){
 
                     try{
-                        if(tabuleiroDefesa.getGrid()[i][j].getText().equals(" ") && tabuleiroAtaque.getGrid()[i][j].getText().equals("A")){
+                        if(tabuleiroDefesa.getGrid()[i][j].getText().equals(" ") && (tabuleiroAtaque.getGrid()[i][j].getText().equals("A")) ){
                             throw new AtaqueNavioException();
                         }
+
                     } catch(AtaqueNavioException x){
                             JOptionPane.showMessageDialog(null, x.getMessage(), "Ataque inválido.", JOptionPane.WARNING_MESSAGE);
                     }
 
+                    } else if((tabuleiroDefesa.getGrid()[i][j].getText().equals("N") || tabuleiroDefesa.getGrid()[i][j].getText().equals("N")) && (tabuleiroAtaque.getGrid()[i][j].getText().equals("X"))) {
 
-                    if ((tabuleiroDefesa.getGrid()[i][j].getText().equals("N") || tabuleiroDefesa.getGrid()[i][j].getText().equals("P")) && tabuleiroAtaque.getGrid()[i][j].getText().equals(" ")) {
+                        try{
+                            if((tabuleiroDefesa.getGrid()[i][j].getText().equals("N") || tabuleiroDefesa.getGrid()[i][j].getText().equals("N")) && (tabuleiroAtaque.getGrid()[i][j].getText().equals("X")) ){
+                                throw new AtaqueNavioException();
+                            }
+
+                        } catch(AtaqueNavioException x){
+                            JOptionPane.showMessageDialog(null, x.getMessage(), "Ataque inválido.", JOptionPane.WARNING_MESSAGE);
+                        }
+
+                    } else if ((tabuleiroDefesa.getGrid()[i][j].getText().equals("N") || tabuleiroDefesa.getGrid()[i][j].getText().equals("P")) && tabuleiroAtaque.getGrid()[i][j].getText().equals(" ")) {
                         tabuleiroAtaque.getGrid()[i][j].setText("X");
                         tabuleiroAtaque.getGrid()[i][j].setBackground(Color.GREEN);
                         cont++;
