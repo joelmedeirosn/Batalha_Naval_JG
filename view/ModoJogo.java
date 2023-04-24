@@ -1,11 +1,7 @@
 package view;
 
 import controller.MovimentoDefesa;
-import model.Navios;
-import model.NomeInvalidoException;
-import model.Player;
-import model.Tabuleiro;
-
+import model.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -104,13 +100,77 @@ public class ModoJogo extends JFrame implements ActionListener {
 
         }
 
-        if(e.getSource()== custom && this.player1.getPlayerName() != null && this.player2.getPlayerName() != null){ //tem que diferenciar as funcoes desse botao e do de cima
-            //Defesa batalhaP1 = new Defesa(player1,player2);
-            //Defesa batalhaP2 = new Defesa(player1,player2);
+        if(e.getSource()== custom && this.player1.getPlayerName() != null && this.player2.getPlayerName() != null){
+            boolean verificador1Cano = false;
+            boolean verificador2Canos = false;
+            boolean verificador3Canos = false;
+            boolean verificador4Canos = false;
+            boolean verificadorAviao = false;
 
-            //this.dispose();
-            //batalhaP1.setVisible(true);
-            //batalhaP2.setVisible(false);
+            do {
+                try {
+                    String inputNavio1 = JOptionPane.showInputDialog(null, "Digite um número inteiro:", "Informe a Quantidade de Navios de 1 Cano", JOptionPane.QUESTION_MESSAGE);
+                    int num1 = Integer.parseInt(inputNavio1);
+                    verificador1Cano = true;
+                    navios.setQuant1Cano(num1);
+                } catch (NumberFormatException x) {
+                    JOptionPane.showMessageDialog(null, "Valor inserido não é um número inteiro válido!");
+                }
+            }
+            while (!verificador1Cano);
+
+            do {
+                try {
+                    String inputNavio2 = JOptionPane.showInputDialog(null, "Digite um número inteiro:","Informe a Quantidade de Navios de 2 Canos",JOptionPane.QUESTION_MESSAGE);
+                    int num2 = Integer.parseInt(inputNavio2);
+                    verificador2Canos = true;
+                    navios.setQuant2Canos(num2);
+                } catch (NumberFormatException x) {
+                    JOptionPane.showMessageDialog(null, "Valor inserido não é um número inteiro válido!");
+                }
+            }
+            while (!verificador2Canos);
+
+            do{
+                try {
+                    String inputNavio3 = JOptionPane.showInputDialog(null, "Digite um número inteiro:","Informe a Quantidade de Navios de 3 Canos",JOptionPane.QUESTION_MESSAGE);
+                    int num3 = Integer.parseInt(inputNavio3);
+                    verificador3Canos = true;
+                    navios.setQuant3Canos(num3);
+                } catch (NumberFormatException x) {
+                JOptionPane.showMessageDialog(null, "Valor inserido não é um número inteiro válido!");
+                }
+            }
+            while (!verificador3Canos);
+
+            do{
+                try {
+                    String inputNavio4 = JOptionPane.showInputDialog(null, "Digite um número inteiro:","Informe a Quantidade de Navios de 4 Canos",JOptionPane.QUESTION_MESSAGE);
+                    int num4 = Integer.parseInt(inputNavio4);
+                    verificador4Canos = true;
+                    navios.setQuant4Canos(num4);
+                } catch (NumberFormatException x) {
+                    JOptionPane.showMessageDialog(null, "Valor inserido não é um número inteiro válido!");
+                }
+            }while (!verificador4Canos);
+
+            do{
+                try {
+                    String inputAviao = JOptionPane.showInputDialog(null, "Digite um número inteiro:","Informe a Quantidade de Porta-avioes",JOptionPane.QUESTION_MESSAGE);
+                    int num5 = Integer.parseInt(inputAviao);
+                    verificadorAviao = true;
+                    navios.setQuantAvioes(num5);
+                } catch (NumberFormatException x) {
+                    JOptionPane.showMessageDialog(null, "Valor inserido não é um número inteiro válido!");
+                }
+            }while(!verificadorAviao);
+
+            Defesa defesa = new Defesa(navios,tabuleiroP1, tabuleiroP2, player1, player2, movimentoDefesa1, movimentoDefesa2);
+            setVisible(false);
+            defesa.setVisible(true);
+            defesa.getPainelTabuleiro().setVisible(false);
+            defesa.getPainelTabuleiro().setVisible(true);
+
         }
 
         if(e.getSource()== voltar){
