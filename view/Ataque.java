@@ -20,12 +20,8 @@ public class Ataque extends JFrame implements ActionListener{
     private Tabuleiro tabuleiroAtaqueP2 = new Tabuleiro();
     private MovimentoAtaque movimentoAtaqueP1;
     private MovimentoAtaque movimentoAtaqueP2;
-
-    //private JButton[][] botoes = new JButton();
-
     private JPanel painelTabuleiroP1 = new JPanel(new GridLayout(10, 10));
     private JPanel painelTabuleiroP2 = new JPanel(new GridLayout(10, 10));
-
 
     public Ataque(Player player1, Player player2, Tabuleiro tabuleiroDefesaP1, Tabuleiro tabuleiroDefesaP2, Navios navios) {
 
@@ -38,17 +34,14 @@ public class Ataque extends JFrame implements ActionListener{
         this.movimentoAtaqueP1 = new MovimentoAtaque(navios, player1,tabuleiroAtaqueP1, tabuleiroDefesaP2);
         this.movimentoAtaqueP2 = new MovimentoAtaque(navios, player2,tabuleiroAtaqueP2, tabuleiroDefesaP1);
 
-
         this.configTabuleiro(tabuleiroAtaqueP1, movimentoAtaqueP1, painelTabuleiroP1);
         this.configurarGuia(player1, painelTabuleiroP1);
         this.configTabuleiro(tabuleiroAtaqueP2, movimentoAtaqueP2, painelTabuleiroP2);
         this.configurarGuia(player2, painelTabuleiroP2);
         painelTabuleiroP2.setVisible(false);
-        //this.switchAtaque();
     }
 
     public void configurarGuia(Player player, JPanel painelTabuleiro) {
-        //preencher o tabuleiro inteiro
         setSize(800, 800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -61,7 +54,6 @@ public class Ataque extends JFrame implements ActionListener{
     }
 
     public void configTabuleiro(Tabuleiro tabuleiro, MovimentoAtaque movimento, JPanel painelTabuleiro) {
-        //lembrar de receber parametro para os dois botoes
         for (int i = 0; i < tabuleiro.getGrid().length; i++) {
             for (int j = 0; j < tabuleiro.getGrid()[i].length; j++) {
                 tabuleiro.getGrid()[i][j].addActionListener(movimento);
@@ -72,9 +64,9 @@ public class Ataque extends JFrame implements ActionListener{
         add(painelTabuleiro);
     }
 
-
     public void checkVictory(Tabuleiro tabuleiroAtaque,Tabuleiro tabuleiroDefesa,Player player){
         int contVictory = 0;
+
         for (int i = 0; i<tabuleiroAtaque.getGrid().length;i++){
             for (int j = 0; j<tabuleiroAtaque.getGrid().length;j++){
                 if (tabuleiroAtaque.getGrid()[i][j].getText().equals("X") && (tabuleiroDefesa.getGrid()[i][j].getText().equals("N") || tabuleiroDefesa.getGrid()[i][j].getText().equals("P"))){
@@ -89,10 +81,8 @@ public class Ataque extends JFrame implements ActionListener{
         {
             player.setGanhou(true);
         }
-
         System.out.println("contador vitoria: " + contVictory);
     }
-
 
     public void actionPerformed(ActionEvent e){
 
@@ -105,14 +95,9 @@ public class Ataque extends JFrame implements ActionListener{
             System.exit(0);
         }
 
-
-
-        //toda vez que o player clicar num botão ele vai chamar essa função para atualizar o valor do contador
-
         for(int i = 0; i<tabuleiroAtaqueP1.getGrid().length; i++){
             for(int j = 0; j<tabuleiroAtaqueP1.getGrid()[i].length; j++){
                 if (e.getSource() == tabuleiroAtaqueP1.getGrid()[i][j]){
-
 
                     if (movimentoAtaqueP1.getCont() == 3){
                         movimentoAtaqueP1.setCont(0);
@@ -128,7 +113,6 @@ public class Ataque extends JFrame implements ActionListener{
         for(int i = 0; i<tabuleiroAtaqueP2.getGrid().length; i++) {
             for (int j = 0; j < tabuleiroAtaqueP2.getGrid()[i].length; j++) {
                 if (e.getSource() == tabuleiroAtaqueP2.getGrid()[i][j]) {
-
 
                     if (movimentoAtaqueP2.getCont() == 3) {
                         movimentoAtaqueP2.setCont(0);
@@ -149,7 +133,6 @@ public class Ataque extends JFrame implements ActionListener{
             JOptionPane.showMessageDialog(null, "Arrr Capitão "+ player2.getPlayerName() +", você derrubou todos os navios de"+ player1.getPlayerName() +"", "🥳🥳🥳PARABENS!!!🥳🥳🥳", JOptionPane.INFORMATION_MESSAGE);
             System.exit(0);
         }
-
     }
 }
 

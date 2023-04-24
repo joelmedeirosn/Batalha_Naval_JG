@@ -12,7 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Defesa extends JFrame implements ActionListener{
-
     private MovimentoDefesa movimentoDefesa1;
     private MovimentoDefesa movimentoDefesa2;
     private Navios navios;
@@ -20,21 +19,7 @@ public class Defesa extends JFrame implements ActionListener{
     private Player player2;
     private Tabuleiro tabuleiroDefesaP1;
     private Tabuleiro tabuleiroDefesaP2;
-    private Tabuleiro tabuleiroAtaqueP1 = new Tabuleiro();
-    private Tabuleiro tabuleiroAtaqueP2 = new Tabuleiro();
-    private MovimentoAtaque movimentoAtaqueP1 = new MovimentoAtaque(navios, player1,tabuleiroAtaqueP1,tabuleiroDefesaP2);
-    private MovimentoAtaque movimentoAtaqueP2 = new MovimentoAtaque(navios, player2, tabuleiroAtaqueP2,tabuleiroDefesaP1);
-
     private boolean avancou = false;
-
-    public boolean isAvancou() {
-        return avancou;
-    }
-
-    public void setAvancou(boolean avancou) {
-        this.avancou = avancou;
-    }
-    //private JButton[][] botoes;
     private JRadioButton botaoAvioes = new JRadioButton("Porta Avioes");
     private JRadioButton botao1Cano = new JRadioButton("1 Cano");
     private JRadioButton botao2Canos = new JRadioButton("2 Canos");
@@ -44,17 +29,13 @@ public class Defesa extends JFrame implements ActionListener{
     private JLabel titulo = new JLabel();
     private Font fonteLabel = new Font("Serif", Font.BOLD,50);
     private Font fonteBotao = new Font("Tahoma",Font.ITALIC | Font.BOLD,15);
-
     private JPanel painelTabuleiro = new JPanel(new GridLayout(10,10));
-    public JPanel getPainelTabuleiro() {
-        return painelTabuleiro;
-    }
-
     private JPanel painel = new JPanel();
     ButtonGroup group = new ButtonGroup();
 
 
     public Defesa(Navios navios, Tabuleiro tabuleiroDefesaP1, Tabuleiro tabuleiroDefesaP2, Player player1, Player player2, MovimentoDefesa movimentoDefesa1, MovimentoDefesa movimentoDefesa2) {
+
         this.movimentoDefesa1 = movimentoDefesa1;
         this.movimentoDefesa2 = movimentoDefesa2;
         this.navios = navios;
@@ -62,6 +43,7 @@ public class Defesa extends JFrame implements ActionListener{
         this.player2 = player2;
         this.tabuleiroDefesaP1 = tabuleiroDefesaP1;
         this.tabuleiroDefesaP2 = tabuleiroDefesaP2;
+
         this.configurarGuia(player1);
         this.configTabuleiro(tabuleiroDefesaP1, movimentoDefesa1);
         this.botoes();
@@ -74,16 +56,17 @@ public class Defesa extends JFrame implements ActionListener{
         setResizable(false);
         setVisible(false);
         setLayout(null);
+
         painelTabuleiro.setSize(500,750);
         painelTabuleiro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Capitão " + player.getPlayerName() + ", posicione seus navios.", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         painel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SELECIONE OS NAVIOS:", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         painel.setBounds(500,0,285,750);
+
         add(painel);
     }
 
     public void configTabuleiro(Tabuleiro tabuleiro, MovimentoDefesa movimentoDefesa){
 
-        //lembrar de receber parametro para os dois botoes
         for(int i = 0; i<tabuleiro.getGrid().length;i++){
             for(int j = 0;j<tabuleiro.getGrid()[i].length;j++){
                 tabuleiro.getGrid()[i][j].addActionListener(movimentoDefesa);
@@ -153,6 +136,11 @@ public class Defesa extends JFrame implements ActionListener{
         group.add(botao4Canos);
         group.add(botaoAvioes);
     }
+
+    public JPanel getPainelTabuleiro() {
+        return painelTabuleiro;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -173,9 +161,9 @@ public class Defesa extends JFrame implements ActionListener{
             repaint();
         }
 
-
             if(movimentoDefesa1.getContador1() == navios.getQuant1Cano() && movimentoDefesa1.getContador2() == navios.getQuant2Canos() && movimentoDefesa1.getContador3() == navios.getQuant3Canos()
             && movimentoDefesa1.getContador4() == navios.getQuant4Canos() && movimentoDefesa1.getContador5() == navios.getQuantAvioes()){
+
                 if(e.getSource() == avancar){
                     if(this.avancou == false) {
                         this.avancou = true;
@@ -189,7 +177,6 @@ public class Defesa extends JFrame implements ActionListener{
                         movimentoDefesa1.setContador1(0);
                     }
                 }
-
             } else {
                     if(movimentoDefesa2.getContador1() == navios.getQuant1Cano() && movimentoDefesa2.getContador2() == navios.getQuant2Canos() && movimentoDefesa2.getContador3() == navios.getQuant3Canos()
                             && movimentoDefesa2.getContador4() == navios.getQuant4Canos() && movimentoDefesa2.getContador5() == navios.getQuantAvioes()){
@@ -201,7 +188,6 @@ public class Defesa extends JFrame implements ActionListener{
                         }
                     }
             }
-
     }
 }
 

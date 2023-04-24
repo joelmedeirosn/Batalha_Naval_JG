@@ -8,24 +8,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MovimentoAtaque implements ActionListener {
-
-    //Classe destinada ao action listener do ataque
     private Navios navios;
     private Player player;
     private Tabuleiro tabuleiroAtaque;
-
     private Tabuleiro tabuleiroDefesa;
-
     private int cont = 1;
-
-    public void setCont(int cont) {
-        this.cont = cont;
-    }
-
-    public int getCont() {
-        return cont;
-    }
-
 
     public MovimentoAtaque(Navios navios, Player player, Tabuleiro tabuleiroAtaque, Tabuleiro tabuleiroDefesa) {
         this.navios = navios;
@@ -34,12 +21,13 @@ public class MovimentoAtaque implements ActionListener {
         this.tabuleiroDefesa = tabuleiroDefesa;
     }
 
+    public void setCont(int cont) {
+        this.cont = cont;
+    }
 
-
-
-
-
-
+    public int getCont() {
+        return cont;
+    }
 
     public void actionPerformed(ActionEvent e){
         for(int i = 0; i<tabuleiroAtaque.getGrid().length;i++){
@@ -73,6 +61,7 @@ public class MovimentoAtaque implements ActionListener {
                         tabuleiroAtaque.getGrid()[i][j].setText("X");
                         tabuleiroAtaque.getGrid()[i][j].setBackground(Color.GREEN);
                         cont++;
+
                     } else if (tabuleiroDefesa.getGrid()[i][j].getText().equals(" ") || tabuleiroAtaque.getGrid()[i][j].getText().equals(" ")) {
                         tabuleiroAtaque.getGrid()[i][j].setText("A");
                         tabuleiroAtaque.getGrid()[i][j].setBackground(Color.RED);

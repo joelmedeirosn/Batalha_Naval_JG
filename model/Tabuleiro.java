@@ -3,22 +3,18 @@ package model;
 import javax.swing.*;
 
 public class Tabuleiro implements Grelha{
-
-
     private JButton[][] grid;
+
+    public Tabuleiro() {
+        this.grid = new JButton[10][10];
+        CriarGrid();
+    }
 
     public JButton[][] getGrid() {
         return this.grid;
     }
     public void setGrid(JButton[][] grid) {
         this.grid = grid;
-    }
-
-
-
-    public Tabuleiro() {
-        this.grid = new JButton[10][10];
-        CriarGrid();
     }
 
     @Override

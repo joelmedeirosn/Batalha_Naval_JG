@@ -8,10 +8,8 @@ import java.awt.event.ActionListener;
 import model.*;
 
 public class Menu extends JFrame implements ActionListener {
-
     private Player p1;
     private Player p2;
-    private ModoJogo modoJogo;
     private JButton jogar = new JButton("JOGAR");
     private JButton recorde = new JButton("RECORDE");
     private JButton sair = new JButton("SAIR");
@@ -35,7 +33,6 @@ public class Menu extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
-
     }
 
     public void botoes(){
@@ -65,7 +62,8 @@ public class Menu extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) { //metodo do action listener que da a função dos botões
+    public void actionPerformed(ActionEvent e) {
+
         if (e.getSource() == jogar) {
             this.p1 = new Player();
             this.p2 = new Player();
@@ -73,14 +71,12 @@ public class Menu extends JFrame implements ActionListener {
             modoJogo.setVisible(true);
             setVisible(false);
         }
+
         if (e.getSource() == sair) {
             int confirm = JOptionPane.showConfirmDialog(null, "Você está prestes a abandonar a tripulação, capitão.", "Sair do jogo", JOptionPane.YES_NO_OPTION);
             if (confirm == JOptionPane.YES_OPTION) {
                 System.exit(0);
             }
-
         }
-
-
     }
 }

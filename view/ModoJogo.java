@@ -12,7 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ModoJogo extends JFrame implements ActionListener {
-
     private Navios navios = new Navios(4,3,2,1,1);
     private Tabuleiro tabuleiroP1 = new Tabuleiro();
     private Tabuleiro tabuleiroP2 = new Tabuleiro();
@@ -20,16 +19,11 @@ public class ModoJogo extends JFrame implements ActionListener {
     private Player player2;
     private MovimentoDefesa movimentoDefesa1 = new MovimentoDefesa(tabuleiroP1,navios);
     private MovimentoDefesa movimentoDefesa2 = new MovimentoDefesa(tabuleiroP2,navios);
-    private Menu menu;
     private JButton normal = new JButton("NORMAL");
     private JButton custom = new JButton("CUSTOM");
     private JButton voltar = new JButton("VOLTAR");
     private Font fonteBotao = new Font("Tahoma",Font.ITALIC | Font.BOLD,15);
     private JPanel painel = new JPanel();
-    private JLabel titulo = new JLabel();
-
-    //private Defesa defesa;
-
 
     public ModoJogo(Player player1, Player player2){
         this.player1 = player1;
@@ -37,7 +31,6 @@ public class ModoJogo extends JFrame implements ActionListener {
         painel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ESCOLHA O MODO DE JOGO:", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
         this.configurarGuia();
         botoes();
-
     }
 
     public void botoes(){
@@ -73,7 +66,6 @@ public class ModoJogo extends JFrame implements ActionListener {
         painel.add(voltar);
 
         add(painel);
-
     }
 
     public void configurarGuia(){
@@ -93,14 +85,12 @@ public class ModoJogo extends JFrame implements ActionListener {
                 this.player1.setPlayerName(JOptionPane.showInputDialog("Qual o seu nome, capitão Um?"));
             } catch (NomeInvalidoException x){
                 JOptionPane.showMessageDialog(null, x.getMessage(), "Usuário incorreto", JOptionPane.WARNING_MESSAGE);
-
             }
 
             try{
                 this.player2.setPlayerName(JOptionPane.showInputDialog("Qual o seu nome, capitão Dois?"));
             } catch (NomeInvalidoException x){
                 JOptionPane.showMessageDialog(null, x.getMessage(), "Usuário incorreto", JOptionPane.WARNING_MESSAGE);
-
             }
         }
 
@@ -128,7 +118,5 @@ public class ModoJogo extends JFrame implements ActionListener {
             this.dispose();
             menu.setVisible(true);
         }
-
-
     }
 }
