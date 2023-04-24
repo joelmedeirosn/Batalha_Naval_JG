@@ -58,10 +58,10 @@ public class MovimentoAtaque implements ActionListener {
                             JOptionPane.showMessageDialog(null, x.getMessage(), "Ataque inválido.", JOptionPane.WARNING_MESSAGE);
                     }
 
-                    } else if((tabuleiroDefesa.getGrid()[i][j].getText().equals("N") || tabuleiroDefesa.getGrid()[i][j].getText().equals("N")) && (tabuleiroAtaque.getGrid()[i][j].getText().equals("X"))) {
+                    } else if((tabuleiroDefesa.getGrid()[i][j].getText().equals("N") || tabuleiroDefesa.getGrid()[i][j].getText().equals("P")) && (tabuleiroAtaque.getGrid()[i][j].getText().equals("X"))) {
 
                         try{
-                            if((tabuleiroDefesa.getGrid()[i][j].getText().equals("N") || tabuleiroDefesa.getGrid()[i][j].getText().equals("N")) && (tabuleiroAtaque.getGrid()[i][j].getText().equals("X")) ){
+                            if((tabuleiroDefesa.getGrid()[i][j].getText().equals("N") || tabuleiroDefesa.getGrid()[i][j].getText().equals("P")) && (tabuleiroAtaque.getGrid()[i][j].getText().equals("X")) ){
                                 throw new AtaqueNavioException();
                             }
 
