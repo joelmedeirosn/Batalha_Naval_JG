@@ -48,8 +48,7 @@ public class MovimentoDefesa implements ActionListener {
             for(int j = 0;j<tabuleiro.getGrid()[i].length;j++){
                 if (e.getSource() == tabuleiro.getGrid()[i][j]) {
 
-                    if (navios.getSaberNavio() == 1){
-
+                    if (navios.getSaberNavio() == 1 && contador1 < navios.getQuant1Cano()){
                         try {
                             if(tabuleiro.getGrid()[i][j].getText().equals("N") || tabuleiro.getGrid()[i][j].getText().equals("P")) {
                                 throw new CoordenadaNavioException();
@@ -68,7 +67,7 @@ public class MovimentoDefesa implements ActionListener {
                         }
                     }
 
-                    if (navios.getSaberNavio() == 2){
+                    if (navios.getSaberNavio() == 2 && contador2 < navios.getQuant2Canos()){
 
                         try{
                             if (tabuleiro.getGrid()[i][j + 1] == null) {
@@ -98,7 +97,7 @@ public class MovimentoDefesa implements ActionListener {
                         }
                     }
 
-                    if (navios.getSaberNavio() == 3){
+                    if (navios.getSaberNavio() == 3 && contador3 < navios.getQuant3Canos()){
 
                         try{
                             if (tabuleiro.getGrid()[i][j + 1] == null || tabuleiro.getGrid()[i][j+2] == null) {
@@ -133,7 +132,7 @@ public class MovimentoDefesa implements ActionListener {
                         }
                     }
 
-                    if (navios.getSaberNavio() == 4){
+                    if (navios.getSaberNavio() == 4 && contador4 < navios.getQuant4Canos()){
 
                         try{
                             if (tabuleiro.getGrid()[i][j+1] == null || tabuleiro.getGrid()[i][j+2] == null || tabuleiro.getGrid()[i][j+3]==null) {
@@ -169,7 +168,7 @@ public class MovimentoDefesa implements ActionListener {
                         }
                     }
 
-                    if (navios.getSaberNavio() == 5){
+                    if (navios.getSaberNavio() == 5 && contador5 < navios.getQuantAvioes()){
 
                         try{
                             if (tabuleiro.getGrid()[i][j + 1] == null || tabuleiro.getGrid()[i][j+2] == null || tabuleiro.getGrid()[i+1][j+1]==null || tabuleiro.getGrid()[i+2][j+1]==null) {
