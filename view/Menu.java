@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 import model.*;
 
 public class Menu extends JFrame implements ActionListener {
-    private Player p1;
-    private Player p2;
+    private Player p1 = new Player();
+    private Player p2 = new Player();
     private JButton jogar = new JButton("JOGAR");
     private JButton recorde = new JButton("RECORDE");
     private JButton instrucoes = new JButton("INSTRUÇÕES");
@@ -72,14 +72,15 @@ public class Menu extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == jogar) {
-            this.p1 = new Player();
-            this.p2 = new Player();
             ModoJogo modoJogo = new ModoJogo(p1, p2);
             modoJogo.setVisible(true);
             setVisible(false);
         }
 
         if(e.getSource()==recorde){
+            p1.treatRecords();
+            JOptionPane.showMessageDialog(null, "Top 10 : \n" + p1.treatRecords());
+
 
         }
 

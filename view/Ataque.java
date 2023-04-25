@@ -35,8 +35,8 @@ public class Ataque extends JFrame implements ActionListener{
         this.tabuleiroDefesaP2 = tabuleiroDefesaP2;
         this.navios = navios;
 
-        this.movimentoAtaqueP1 = new MovimentoAtaque(navios, player1,tabuleiroAtaqueP1, tabuleiroDefesaP2);
-        this.movimentoAtaqueP2 = new MovimentoAtaque(navios, player2,tabuleiroAtaqueP2, tabuleiroDefesaP1);
+        this.movimentoAtaqueP1 = new MovimentoAtaque(navios,player1,tabuleiroAtaqueP1, tabuleiroDefesaP2, tempo, cronometro);
+        this.movimentoAtaqueP2 = new MovimentoAtaque(navios,player2,tabuleiroAtaqueP2, tabuleiroDefesaP1, tempo, cronometro);
 
         cronometro.start();
         cronometro.playP1();
@@ -77,36 +77,9 @@ public class Ataque extends JFrame implements ActionListener{
         add(painelTabuleiro);
     }
 
-    public void checkVictory(Tabuleiro tabuleiroAtaque,Tabuleiro tabuleiroDefesa,Player player){
-        int contVictory = 0;
 
-        for (int i = 0; i<tabuleiroAtaque.getGrid().length;i++){
-            for (int j = 0; j<tabuleiroAtaque.getGrid().length;j++){
-                if (tabuleiroAtaque.getGrid()[i][j].getText().equals("X") && (tabuleiroDefesa.getGrid()[i][j].getText().equals("N") || tabuleiroDefesa.getGrid()[i][j].getText().equals("P"))){
-                    contVictory++;
-                }
-            }
-        }
-
-        if(contVictory == ((navios.getQuant1Cano() +
-                (2 * navios.getQuant2Canos()) + (3 * navios.getQuant3Canos()) +
-                (4 * navios.getQuant4Canos()) + (5 * navios.getQuantAvioes())) - 1))
-        {
-            player.setGanhou(true);
-        }
-        System.out.println("contador vitoria: " + contVictory);
-    }
 
     public void actionPerformed(ActionEvent e){
-
-        if(player1.isGanhou()){
-            JOptionPane.showMessageDialog(null, "Arrr Capitão"+ player1.getPlayerName() +", você derrubou todos os navios de "+ player2.getPlayerName() +"", "🥳🥳🥳PARABENS!!!🥳🥳🥳", JOptionPane.INFORMATION_MESSAGE);
-            System.exit(0);
-        }
-        if(player2.isGanhou()){
-            JOptionPane.showMessageDialog(null, "Arrr Capitão "+ player2.getPlayerName() +"️, você derrubou todos os navios de"+ player1.getPlayerName() +"", "🥳🥳🥳PARABENS!!!🥳🥳🥳", JOptionPane.INFORMATION_MESSAGE);
-            System.exit(0);
-        }
 
         for(int i = 0; i<tabuleiroAtaqueP1.getGrid().length; i++){
             for(int j = 0; j<tabuleiroAtaqueP1.getGrid()[i].length; j++){
@@ -119,8 +92,6 @@ public class Ataque extends JFrame implements ActionListener{
                         painelTabuleiroP1.setVisible(false);
                         painelTabuleiroP2.setVisible(true);
                     }
-
-                    checkVictory(tabuleiroAtaqueP1,tabuleiroDefesaP2,player1);
                 }
             }
         }
@@ -136,19 +107,8 @@ public class Ataque extends JFrame implements ActionListener{
                         painelTabuleiroP2.setVisible(false);
                         painelTabuleiroP1.setVisible(true);
                     }
-
-                    checkVictory(tabuleiroAtaqueP2,tabuleiroDefesaP1,player2);
                 }
             }
-        }
-
-        if(player1.isGanhou()){
-            JOptionPane.showMessageDialog(null, "Arrr Capitão "+ player1.getPlayerName() +"️, você derrubou todos os navios de "+ player2.getPlayerName() +"", "🥳🥳🥳PARABENS!!!🥳🥳🥳", JOptionPane.INFORMATION_MESSAGE);
-            System.exit(0);
-        }
-        if(player2.isGanhou()){
-            JOptionPane.showMessageDialog(null, "Arrr Capitão "+ player2.getPlayerName() +", você derrubou todos os navios de"+ player1.getPlayerName() +"", "🥳🥳🥳PARABENS!!!🥳🥳🥳", JOptionPane.INFORMATION_MESSAGE);
-            System.exit(0);
         }
     }
 }
