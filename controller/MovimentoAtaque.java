@@ -68,7 +68,7 @@ public class MovimentoAtaque implements ActionListener {
                         cont++;
                     }
 
-                    System.out.println("contador ataque: " + cont +"\n");
+                    System.out.println(""+player.getPlayerName()+" contador ataque: " + cont +"\n");
                 }
             }
         }

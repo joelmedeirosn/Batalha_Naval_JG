@@ -69,8 +69,9 @@ public class Ataque extends JFrame implements ActionListener{
     public void configTabuleiro(Tabuleiro tabuleiro, MovimentoAtaque movimento, JPanel painelTabuleiro) {
         for (int i = 0; i < tabuleiro.getGrid().length; i++) {
             for (int j = 0; j < tabuleiro.getGrid()[i].length; j++) {
-                tabuleiro.getGrid()[i][j].addActionListener(movimento);
+
                 tabuleiro.getGrid()[i][j].addActionListener(this);
+                tabuleiro.getGrid()[i][j].addActionListener(movimento);
                 painelTabuleiro.add(tabuleiro.getGrid()[i][j]);
             }
         }
@@ -90,7 +91,7 @@ public class Ataque extends JFrame implements ActionListener{
 
         if(contVictory == ((navios.getQuant1Cano() +
                 (2 * navios.getQuant2Canos()) + (3 * navios.getQuant3Canos()) +
-                (4 * navios.getQuant4Canos()) + (5 * navios.getQuantAvioes())) - 1))
+                (4 * navios.getQuant4Canos()) + (5 * navios.getQuantAvioes()))))
         {
             player.setGanhou(true);
         }
@@ -112,6 +113,8 @@ public class Ataque extends JFrame implements ActionListener{
             for(int j = 0; j<tabuleiroAtaqueP1.getGrid()[i].length; j++){
                 if (e.getSource() == tabuleiroAtaqueP1.getGrid()[i][j]){
 
+                    checkVictory(tabuleiroAtaqueP1,tabuleiroDefesaP2,player1);
+
                     if (movimentoAtaqueP1.getCont() == 3){
                         movimentoAtaqueP1.setCont(0);
                         cronometro.pauseP1();
@@ -129,6 +132,8 @@ public class Ataque extends JFrame implements ActionListener{
             for (int j = 0; j < tabuleiroAtaqueP2.getGrid()[i].length; j++) {
                 if (e.getSource() == tabuleiroAtaqueP2.getGrid()[i][j]) {
 
+                    checkVictory(tabuleiroAtaqueP2,tabuleiroDefesaP1,player2);
+
                     if (movimentoAtaqueP2.getCont() == 3) {
                         movimentoAtaqueP2.setCont(0);
                         cronometro.pauseP2();
@@ -137,7 +142,7 @@ public class Ataque extends JFrame implements ActionListener{
                         painelTabuleiroP1.setVisible(true);
                     }
 
-                    checkVictory(tabuleiroAtaqueP2,tabuleiroDefesaP1,player2);
+                    checkVictory(tabuleiroAtaqueP1,tabuleiroDefesaP2,player1);
                 }
             }
         }
