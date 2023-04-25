@@ -54,16 +54,6 @@ public class Cronometro extends Thread{
 
         }
     }
-    public void reiniciarCronometro() {
-        segP1 =0;
-        segP2 =0;
-        minP1 =0;
-        minP2 =0;
-        horaP1 =0;
-        horaP2 =0;
-        pauseP1=true;
-        pauseP2 =true;
-    }
     public void pauseP1() {
         this.pauseP1 = true;
 

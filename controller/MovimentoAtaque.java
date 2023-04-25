@@ -1,7 +1,6 @@
 package controller;
 
 import model.*;
-import view.Ataque;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,8 +11,6 @@ public class MovimentoAtaque implements ActionListener {
     private Navios navios;
     private JLabel tempo;
     private Player player;
-    private Player player1;
-    private Player player2;
     private Cronometro cronometro;
     private Tabuleiro tabuleiroAtaque;
     private Tabuleiro tabuleiroDefesa;
@@ -46,7 +43,6 @@ public class MovimentoAtaque implements ActionListener {
             }
         }
 
-        System.out.println("contador vitoria: " + contVictory);
         if(contVictory == ((navios.getQuant1Cano() +
                 (2 * navios.getQuant2Canos()) + (3 * navios.getQuant3Canos()) +
                 (4 * navios.getQuant4Canos()) + (5 * navios.getQuantAvioes()))))
@@ -56,7 +52,7 @@ public class MovimentoAtaque implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Arrr Capitão "+ player.getPlayerName() +"️, você derrubou todos os navios!  ", "🥳🥳🥳PARABENS!!!🥳🥳🥳", JOptionPane.INFORMATION_MESSAGE);
                 cronometro.pauseP1();
                 cronometro.pauseP2();
-                player.putOnRecords(tempo);
+                player.colocarRecordes(tempo);
                 System.exit(0);
             }
 
@@ -104,7 +100,6 @@ public class MovimentoAtaque implements ActionListener {
                         cont++;
                     }
                     checkVictory(tabuleiroAtaque,tabuleiroDefesa,player);
-                    System.out.println("contador ataque: " + cont +"\n");
                 }
             }
         }

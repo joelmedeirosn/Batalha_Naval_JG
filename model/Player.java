@@ -5,9 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.LinkPermission;
 import java.util.Arrays;
-import java.util.Scanner;
 
 
 public class Player {
@@ -35,19 +33,18 @@ public class Player {
         this.ganhou = ganhou;
     }
 
-    public void putOnRecords(JLabel time) {
+    public void colocarRecordes(JLabel time) {
         try {
             FileWriter writer = new FileWriter("record.txt",true);
             writer.write(this.getPlayerName() + " - " + time.getText()+"\n");
             writer.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
     }
 
-    public String readRecord() {
+    public String leituraRecord() {
         String record="";
         try {
             FileReader reader = new FileReader("record.txt");
@@ -67,31 +64,31 @@ public class Player {
         return record;
     }
 
-    public String treatRecords() {
-        String[] linhas = readRecord().split("\n");
-        String [] playerAndScore = new String[linhas.length];
+    public String tratarRecordes() {
+        String[] linhas = leituraRecord().split("\n");
+        String [] playerTempo = new String[linhas.length];
         String [] player = new String[linhas.length];
-        String [] score = new String[linhas.length];
+        String [] tempo = new String[linhas.length];
         String top10="";
 
         for (int i = 0; i < linhas.length; i++) {
-            playerAndScore[i]= linhas[i].substring(linhas[i].lastIndexOf("-")+2)+" "+linhas[i].substring(0,linhas[i].lastIndexOf("-")-1);
+            playerTempo[i]= linhas[i].substring(linhas[i].lastIndexOf("-")+2)+" "+linhas[i].substring(0,linhas[i].lastIndexOf("-")-1);
         }
 
-        Arrays.sort(playerAndScore);
+        Arrays.sort(playerTempo);
 
         for (int i = 0; i < linhas.length; i++) {
-            score[i] = playerAndScore[i].substring(0,playerAndScore[i].lastIndexOf(" "));
-            player[i] = playerAndScore[i].substring(playerAndScore[i].lastIndexOf(" ")+1);
+            tempo[i] = playerTempo[i].substring(0,playerTempo[i].lastIndexOf(" "));
+            player[i] = playerTempo[i].substring(playerTempo[i].lastIndexOf(" ")+1);
         }
 
         if(linhas.length>10) {
             for (int i = 0; i < 10; i++) {
-                top10 = top10 + (player[i] + " - " + score[i]+"\n");
+                top10 = top10 + (player[i] + " - " + tempo[i]+"\n");
             }
         }else {
             for (int i = 0; i < linhas.length; i++) {
-                top10 = top10 + (player[i] + " - " + score[i]+"\n");
+                top10 = top10 + (player[i] + " - " + tempo[i]+"\n");
             }
         }
 

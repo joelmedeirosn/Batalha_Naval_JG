@@ -78,14 +78,14 @@ public class Menu extends JFrame implements ActionListener {
         }
 
         if(e.getSource()==recorde){
-            p1.treatRecords();
-            JOptionPane.showMessageDialog(null, "Top 10 : \n" + p1.treatRecords());
+            p1.tratarRecordes();
+            JOptionPane.showMessageDialog(null, "Top 10 : \n" + p1.tratarRecordes());
 
 
         }
 
         if(e.getSource()==instrucoes){
-            JOptionPane.showMessageDialog(null, "- Batalha Naval é um jogo onde dois jogadores colocam navios em uma grade de 10x10 células e tentam afundar os \n navios do oponente antes que os seus próprios navios sejam afundados.\n - Cada jogador (no modo normal) tem 10 navios de tamanhos diferentes para posicionar no tabuleiro.\n - Durante a fase de ataques, os jogadores selecionam as células na grade do oponente para tentar acertar os navios.\n - O primeiro jogador a afundar todos os navios do oponente vence o jogo.");
+            JOptionPane.showMessageDialog(null, "- Batalha Naval é um jogo onde dois jogadores colocam navios em uma grade de 10x10 células e tentam afundar os \n navios do oponente antes que os seus próprios navios sejam afundados.\n - Cada jogador (no modo normal) tem 11 navios de tamanhos diferentes para posicionar no tabuleiro.\n - Durante a fase de ataques, os jogadores selecionam as células na grade do oponente para tentar acertar os navios.\n - O primeiro jogador a afundar todos os navios do oponente vence o jogo.");
         }
 
         if (e.getSource() == sair) {
